@@ -1,0 +1,54 @@
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.env
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+
+# Local Anaconda metadata
+anaconda_projects/
+
+# Nested Git repository
+markitdown/
+
+# Temporary/editor files
+.vscode/
+*.db
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.env
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+
+anaconda_projects/
+markitdown/
+.vscode/
+*.db
+
+# Python environments
+venv/
+.venv/
+__pycache__/
+
+# IDE settings
+**/.vscode/
+
+# Database files
+*.db
+
+# Unnecessary local repositories
+anaconda_projects/
+markitdown/
+
+research/Air_Quality_50_Feature_Context_PDFs/CONTEXT PDF files ZIPP.zip

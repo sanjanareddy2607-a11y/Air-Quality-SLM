@@ -1,0 +1,15 @@
+{"instruction": "Do you have a NMHC reading for 22:00 on 12/10/2004?", "output": "No valid NMHC reading was recorded at 22:00 on 12/10/2004 — the sensor logged a missing-value code for this slot, so I can't give you a number for it."}
+{"instruction": "Give me a summary of NO2 and temperature for 03/05/2004 at 20:00.", "output": "NO2: 113 µg/m^3; temperature: 19.3 °C."}
+{"instruction": "How much SO2 was in the air on 10/08/2004 at 19:00?", "output": "This dataset doesn't include SO2 measurements. It only covers CO, NMHC, benzene (C6H6), NOx, NO2, an ozone-correlated sensor response, plus temperature and humidity — I can't provide an SO2 reading from it."}
+{"instruction": "What was the PM2.5 level on 23/10/2004 at 09:00?", "output": "This dataset doesn't include PM2.5 measurements. It only covers CO, NMHC, benzene (C6H6), NOx, NO2, an ozone-correlated sensor response, plus temperature and humidity — I can't provide a PM2.5 reading from it."}
+{"instruction": "Predict the air quality metrics on 28/01/2005 at 15:00, including absolute humidity and temperature.", "output": "absolute humidity: 0.4118 g/m^3; temperature: 4.2 °C."}
+{"instruction": "What were the C6H6 (benzene) and temperature readings on 27/09/2004 at 14:00?", "output": "C6H6 (benzene): 9.2 µg/m^3; temperature: 23.8 °C."}
+{"instruction": "Did temperature go up or down from 09:00 to 10:00 on 17/06/2004?", "output": "temperature increased from 25.2 to 28 °C between 09:00 and 10:00 on 17/06/2004."}
+{"instruction": "I need the NO2 value recorded at 21:00 on 08/08/2004.", "output": "NO2: 98 µg/m^3."}
+{"instruction": "What were the temperature and humidity on 19/03/2005 at 00:00?", "output": "temperature: 11.8 °C; relative humidity: 68.3 %."}
+{"instruction": "What were the CO and absolute humidity readings on 28/11/2004 at 14:00?", "output": "CO: 2.3 mg/m^3; absolute humidity: 0.9209 g/m^3."}
+{"instruction": "What was the photochemical oxidants (OX) level on 26/03/2004 at 11:00?", "output": "This dataset doesn't include photochemical oxidants (OX) measurements. It only covers CO, NMHC, benzene (C6H6), NOx, NO2, an ozone-correlated sensor response, plus temperature and humidity — I can't provide a photochemical oxidants (OX) reading from it."}
+{"instruction": "I need the PT08.S5 sensor (O3-targeted) value recorded at 13:00 on 03/04/2004.", "output": "PT08.S5 sensor (O3-targeted): 1014 sensor units (this is a raw tin-oxide sensor response, not a calibrated concentration)."}
+{"instruction": "Do you have a NOx reading for 09:00 on 09/05/2004?", "output": "No valid NOx reading was recorded at 09:00 on 09/05/2004 — the sensor logged a missing-value code for this slot, so I can't give you a number for it."}
+{"instruction": "What were the temperature and humidity on 28/03/2004 at 23:00?", "output": "temperature: 11.5 °C; relative humidity: 46.6 %."}
+{"instruction": "How did the absolute humidity level change between 04:00 and 05:00 on 30/05/2004?", "output": "absolute humidity decreased from 0.9185 to 0.9178 g/m^3 between 04:00 and 05:00 on 30/05/2004."}
