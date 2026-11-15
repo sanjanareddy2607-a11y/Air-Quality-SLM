@@ -1,0 +1,112 @@
+{
+  "_comment": "Air Quality SLM - Training Configuration. CPU-optimized for Qwen3-based architecture.",
+  "project": {
+    "name": "Air Quality Small Language Model (SLM)",
+    "domain": "Environmental Air Quality Monitoring",
+    "dataset": "UCI Machine Learning Repository - Air Quality Dataset",
+    "architecture": "Qwen3 (RMSNorm + GQA + RoPE + SwiGLU)"
+  },
+  "data": {
+    "raw_csv": "data/raw/air+quality/AirQualityUCI.csv",
+    "processed_train": "data/processed/train.csv",
+    "processed_val": "data/processed/validation.csv",
+    "processed_test": "data/processed/test.csv",
+    "tokenized_train_bin": "training/data_bin/train.bin",
+    "tokenized_val_bin": "training/data_bin/val.bin",
+    "tokenized_test_bin": "training/data_bin/test.bin",
+    "train_rows": 6549,
+    "val_rows": 936,
+    "test_rows": 1872,
+    "train_tokens": 3041432,
+    "val_tokens": 431740,
+    "test_tokens": 870987,
+    "instruction_templates": 4,
+    "total_train_samples": 26196
+  },
+  "tokenizer": {
+    "model_id": "Qwen/Qwen2.5-0.5B",
+    "vocab_size": 151665,
+    "special_tokens": {
+      "eos_token": "<|endoftext|>",
+      "pad_token": "<|endoftext|>"
+    }
+  },
+  "model_cpu": {
+    "_comment": "Settings auto-selected when no CUDA GPU is detected",
+    "d_model": 128,
+    "n_heads": 4,
+    "n_kv_groups": 2,
+    "n_layers": 4,
+    "d_ff": 512,
+    "block_size": 64,
+    "total_params_approx": "20.4M",
+    "tie_word_embeddings": true
+  },
+  "model_gpu": {
+    "_comment": "Settings auto-selected when a CUDA GPU is detected",
+    "d_model": 256,
+    "n_heads": 8,
+    "n_kv_groups": 4,
+    "n_layers": 6,
+    "d_ff": 1024,
+    "block_size": 128,
+    "total_params_approx": "~140M",
+    "tie_word_embeddings": true
+  },
+  "training_cpu": {
+    "max_iters": 500,
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "effective_batch_size": 8,
+    "learning_rate": 1e-3,
+    "lr_warmup_ratio": 0.1,
+    "lr_scheduler": "LinearWarmup + CosineAnnealing",
+    "optimizer": "AdamW",
+    "betas": [0.9, 0.95],
+    "weight_decay": 0.1,
+    "eps": 1e-9,
+    "grad_clip_norm": 0.5,
+    "eval_interval": 50,
+    "eval_iters": 15,
+    "mixed_precision": false
+  },
+  "training_gpu": {
+    "max_iters": 1500,
+    "batch_size": 16,
+    "grad_accum_steps": 4,
+    "effective_batch_size": 64,
+    "learning_rate": 4e-4,
+    "lr_warmup_ratio": 0.1,
+    "lr_scheduler": "LinearWarmup + CosineAnnealing",
+    "optimizer": "AdamW",
+    "betas": [0.9, 0.95],
+    "weight_decay": 0.1,
+    "eps": 1e-9,
+    "grad_clip_norm": 0.5,
+    "eval_interval": 250,
+    "eval_iters": 50,
+    "mixed_precision": true,
+    "precision": "float16"
+  },
+  "output": {
+    "checkpoint_dir": "training/checkpoints/",
+    "best_checkpoint": "training/checkpoints/best_model.pt",
+    "latest_checkpoint": "training/checkpoints/latest_model.pt",
+    "final_model_dir": "models/air_quality_slm/",
+    "training_summary": "models/air_quality_slm/training_summary.json",
+    "sample_generations": "models/air_quality_slm/sample_generations.json"
+  },
+  "inference": {
+    "temperature": 0.7,
+    "top_k": 40,
+    "repetition_penalty": 1.2,
+    "max_new_tokens": 50
+  },
+  "environment": {
+    "python": "venv/Scripts/python.exe",
+    "pytorch": "2.14.1+cpu",
+    "cuda_available": false,
+    "device": "cpu",
+    "seed": 42
+  }
+}

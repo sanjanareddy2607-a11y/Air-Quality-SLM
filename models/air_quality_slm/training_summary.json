@@ -1,0 +1,50 @@
+{
+  "model_name": "Air Quality Small Language Model (SLM)",
+  "base_architecture": "Qwen3 (GQA, RoPE, RMSNorm, SwiGLU)",
+  "dataset": "UCI Machine Learning Repository - Air Quality Dataset",
+  "parameters": {
+    "total_params": 20397568,
+    "trainable_params": 20397568,
+    "d_model": 128,
+    "n_layers": 4,
+    "n_heads": 4,
+    "n_kv_groups": 2,
+    "d_ff": 512,
+    "max_seq_len": 64
+  },
+  "training_time_seconds": 279.01,
+  "iterations": 150,
+  "initial_train_loss": 11.8904,
+  "initial_val_loss": 11.883,
+  "best_val_loss": 1.3651,
+  "best_val_perplexity": 3.92,
+  "final_test_loss": 1.4295,
+  "final_test_perplexity": 4.18,
+  "loss_progression": [
+    {
+      "step": 40,
+      "train_loss": 5.099194526672363,
+      "val_loss": 5.136847496032715,
+      "lr": 0.0009484552115439437
+    },
+    {
+      "step": 80,
+      "train_loss": 2.2676172256469727,
+      "val_loss": 2.2905476093292236,
+      "lr": 0.000604241506114895
+    },
+    {
+      "step": 120,
+      "train_loss": 1.524233102798462,
+      "val_loss": 1.5600249767303467,
+      "lr": 0.00021317016332300453
+    },
+    {
+      "step": 149,
+      "train_loss": 1.3390238285064697,
+      "val_loss": 1.3650671243667603,
+      "lr": 0.00010013139366391317
+    }
+  ],
+  "status": "TRAINED_AND_VERIFIED"
+}

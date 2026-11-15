@@ -1,0 +1,14 @@
+[
+  {
+    "prompt": "Task: Predict the absolute humidity given the following parameters: Date: 11/03/2004, Time: 02.00.00, CO(GT): 0.9, NOx(GT): 45.0, NO2(GT): 60.0. Response:",
+    "completion": "03.7.3 ppb C44 at 28(GT)=11=0.\n<|endoftext|>\n(GT)=423.7 ug/m3 (sensor PT"
+  },
+  {
+    "prompt": "Air quality measurement report for 15/04/2004 at 12.00.00: Carbon Monoxide CO(GT)=",
+    "completion": "62/m3 (sensor PT0.S2=54 NOx, Time: 133 ug/m3.\n<|endoftext|>\nAirAir measurement8 mg/m3,ides NOx is"
+  },
+  {
+    "prompt": "Question: What were the ambient temperature and relative humidity recorded on 10/03/2004 at 18.00.00? Answer:",
+    "completion": "Recorded CO is 17, NOx is 13/? Humidity=5.1.1 g/m3.\n.\n<|endoftext|>\n(GT): 10, Time:"
+  }
+]

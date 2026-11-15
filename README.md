@@ -152,11 +152,25 @@ Activate it on Windows:
 pip install -r requirements.txt
 ```
 
-### 4. Explore the project
+### 4. Train the Air Quality SLM
+Run the end-to-end training pipeline with a single command:
+```bash
+python src/train_slm.py
+```
+Or launch the pre-configured training batch script:
+```cmd
+train.bat
+```
 
-Open the notebooks in the `notebooks/` directory to explore the data preparation and experimentation workflow.
+### 5. Run Model Inference
+Generate air quality sensor interpretations and predictions using the trained model:
+```bash
+python src/evaluate_slm.py
+```
 
-Run the relevant preprocessing and validation scripts from `src/` according to their documented usage.
+### 6. Interactive Jupyter Notebook
+Alternatively, open and run the complete step-by-step notebook:
+`notebooks/Air_Quality_SLM_Training.ipynb`
 
 ---
 
@@ -173,20 +187,19 @@ Run the relevant preprocessing and validation scripts from `src/` according to t
 
 ## Current Development Status
 
-This repository is an evolving research and development project.
+This repository contains the complete end-to-end dataset preparation and SLM training pipeline.
 
-| Component | Status |
-|---|---|
-| Original dataset acquisition | Completed |
-| Initial data preprocessing | Completed |
-| Training, validation and test split | Completed |
-| Dataset validation and packaging | Prepared |
-| Domain-context collection | In progress |
-| Tokenization pipeline | Upcoming |
-| Model training / adaptation | Upcoming |
-| Model evaluation | Upcoming |
-
-Update this table as each component is implemented and verified.
+| Component | Status | Details |
+|---|:---:|---|
+| Original dataset acquisition | Completed | UCI Air Quality (9,471 records) |
+| Initial data preprocessing | Completed | 9,357 cleaned observations, 15 features |
+| Training, validation and test split | Completed | 70% / 10% / 20% chronological split |
+| Dataset validation and packaging | Completed | Validated zero-leakage, Hugging Face packaged |
+| Domain-context collection | Completed | 50 feature context references collected |
+| Tokenization pipeline | Completed | 4.34M tokens encoded (`training/data_bin/`) |
+| Model training / architecture | Completed | Qwen3 (20.4M params), RMSNorm, GQA, RoPE, SwiGLU |
+| Model evaluation | Completed | Best Val Loss 1.3651 (PPL 3.92), Test Loss 1.4295 |
+| Hugging Face Model Export | Completed | Saved in `models/air_quality_slm/` |
 
 ---
 
