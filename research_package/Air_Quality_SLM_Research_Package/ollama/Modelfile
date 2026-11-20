@@ -1,0 +1,31 @@
+# Modelfile for Air Quality SLM (Route A)
+# Domain-Specific Small Language Model for Air Quality Data
+
+FROM ./models/air_quality_slm/air_quality_slm.gguf
+
+# Model was trained with context length (max_seq_len) of 64 tokens
+PARAMETER num_ctx 64
+
+# Deterministic decoding.
+# The trained model's next-token distribution is very flat (top-1 probability is only
+# ~0.18 even on in-distribution prompts), so sampling at temperature 0.7 with top_k 40
+# picks low-probability vocabulary fragments most of the time: that is what produced the
+# garbled and multilingual output. Greedy decoding reproduces the exact text the original
+# PyTorch checkpoint produces.
+PARAMETER temperature 0
+PARAMETER top_k 1
+PARAMETER top_p 1.0
+PARAMETER min_p 0.0
+# No penalty: penalising already-seen tokens (including the prompt) distorts an
+# already weak distribution and was corrupting the output further.
+PARAMETER repeat_penalty 1.0
+PARAMETER repeat_last_n 64
+# Bound the response: the model emits EOS on well-formed completions, and an unbounded
+# run would otherwise drift into arbitrary vocabulary.
+PARAMETER num_predict 64
+
+# Stop on trained End-Of-Sequence token
+PARAMETER stop "<|endoftext|>"
+
+# Raw prompt template directly matching trained instruction formatting
+TEMPLATE """{{ .Prompt }}"""

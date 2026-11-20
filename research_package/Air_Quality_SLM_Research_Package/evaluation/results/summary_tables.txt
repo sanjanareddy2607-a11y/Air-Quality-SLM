@@ -1,0 +1,118 @@
+====================================================================================================
+FULL-SPLIT LOSS / PERPLEXITY (block 128, every token scored once)
+modelsplit        tokens     loss       ppl
+v1   val         431,488   1.4252     4.159
+v1   test        870,784   1.4474     4.252
+v2   val         431,488   0.4877     1.629
+v2   test        870,784   0.5555     1.743
+v1   val@64       25,600   1.3583     3.890
+v1   test@64      25,600   1.4130     4.108
+
+====================================================================================================
+TEACHER-FORCED ANSWER LOSS (tokens after the prompt only)
+modelsplit  template        n     loss       ppl    top1
+v1   val    REPORT          0      n/a       n/a     n/a
+v1   val    AH            936   1.4798     4.392   0.666
+v1   val    TEMP_RH       936   1.5306     4.621   0.654
+v1   val    POLLUTANT     936   1.3656     3.918   0.727
+v1   val    ALL          2808   1.4587     4.300     n/a
+v1   test   REPORT          0      n/a       n/a     n/a
+v1   test   AH           1872   1.4632     4.320   0.661
+v1   test   TEMP_RH      1872   1.5762     4.837   0.635
+v1   test   POLLUTANT    1872   1.3453     3.839   0.726
+v1   test   ALL          5616   1.4615     4.313     n/a
+v2   val    REPORT          0      n/a       n/a     n/a
+v2   val    AH            936   0.3607     1.434   0.838
+v2   val    TEMP_RH       936   0.5947     1.812   0.789
+v2   val    POLLUTANT     936   0.4720     1.603   0.838
+v2   val    ALL          2808   0.4758     1.609     n/a
+v2   test   REPORT          0      n/a       n/a     n/a
+v2   test   AH           1872   0.4086     1.505   0.814
+v2   test   TEMP_RH      1872   0.7086     2.031   0.785
+v2   test   POLLUTANT    1872   0.4934     1.638   0.825
+v2   test   ALL          5616   0.5369     1.711     n/a
+
+====================================================================================================
+NUMERIC ACCURACY (gold = dataset label; MAE/RMSE; constant = train-mean predictor)
+quantity    modelsplit     ext%       MAE      RMSE    ±5%      r  pred_std  const_MAE  ratio
+AH          v1   val       94.4    9.3380    9.8151    1.6 -0.038     3.009      0.459 20.356   n=752 (gold missing 132)
+AH          v1   test      93.6    9.0992    9.7186    0.7 -0.002     3.416      0.558 16.320   n=1667 (gold missing 86)
+AH          v2   val      100.0    0.4335    0.4871    1.4  0.006     0.003      0.459  0.945   n=804 (gold missing 132)
+AH          v2   test     100.0    0.5345    0.5849    3.4  0.101     0.003      0.558  0.959   n=1786 (gold missing 86)
+T           v1   val          0  (no extractable predictions)
+T           v1   test         0  (no extractable predictions)
+T           v2   val      100.0   11.0262   11.5868    0.0    n/a     0.000     11.491  0.960   n=804 (gold missing 132)
+T           v2   test     100.0   11.5356   12.7249    3.1    n/a     0.000     11.951  0.965   n=1786 (gold missing 86)
+RH          v1   val          0  (no extractable predictions)
+RH          v1   test         0  (no extractable predictions)
+RH          v2   val      100.0   36.3190   39.4636    0.9    n/a     0.000     15.713  2.311   n=804 (gold missing 132)
+RH          v2   test     100.0   29.3173   33.4316    1.4    n/a     0.000     13.608  2.154   n=1786 (gold missing 86)
+CO          v1   val          0  (no extractable predictions)
+CO          v1   test         0  (no extractable predictions)
+CO          v2   val      100.0    1.2180    1.6551    8.3    n/a     0.000      1.224  0.995   n=827 (gold missing 109)
+CO          v2   test     100.0    1.1197    1.3933    8.1    n/a     0.000      1.100  1.018   n=1781 (gold missing 91)
+NOx         v1   val          0  (no extractable predictions)
+NOx         v1   test         0  (no extractable predictions)
+NOx         v2   val      100.0  300.8435  382.9045    1.0    n/a     0.000    233.888  1.286   n=805 (gold missing 131)
+NOx         v2   test     100.0  202.5402  285.2763    2.5    n/a     0.000    157.689  1.284   n=1814 (gold missing 58)
+NO2         v1   val          0  (no extractable predictions)
+NO2         v1   test         0  (no extractable predictions)
+NO2         v2   val      100.0   35.9242   45.4307   11.4    n/a     0.000     42.188  0.852   n=805 (gold missing 131)
+NO2         v2   test     100.0   49.4129   62.9303    7.4    n/a     0.000     55.509  0.890   n=1814 (gold missing 58)
+C6H6        v1   val          0  (no extractable predictions)
+C6H6        v1   test         0  (no extractable predictions)
+C6H6        v2   val      100.0    5.8106    6.9737    5.0    n/a     0.000      5.678  1.023   n=804 (gold missing 132)
+C6H6        v2   test     100.0    6.3469    7.3235    3.4    n/a     0.000      6.128  1.036   n=1786 (gold missing 86)
+
+====================================================================================================
+STRUCTURE / BEHAVIOUR (fraction of generated outputs)
+modelsplit         eos_rate  ran_to_cap_ra  repetitive_ra  no_digits_rat   unit_ok_rate  wrong_unit_ra  date_hallucin  date_in_outpu  malformed_rat
+v1   val              0.000          1.000          0.352          0.019          0.055          0.333          0.000          0.000          1.000
+v1   test             0.000          1.000          0.355          0.021          0.053          0.333          0.000          0.000          1.000
+v2   val              1.000          0.000          0.000          0.000          1.000          0.000          0.333          0.333          0.000
+v2   test             1.000          0.000          0.000          0.000          1.000          0.000          0.333          0.333          0.000
+
+====================================================================================================
+OUTPUT DIVERSITY AND PER-TEMPLATE STRUCTURE
+v1 val AH         gen=  936 distinct=   55 modal= 20.7% eos=0.000 unit_ok=0.165 date_halluc=0.000
+      modal: '11.0.0.0.0.0.0.0.0.0.0.0.0.04, NOx(GT)=111 ug/m'
+v1 val TEMP_RH    gen=  936 distinct=    2 modal= 58.9% eos=0.000 unit_ok=0.000 date_halluc=0.000
+      modal: '1.0.0.00, the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature an'
+v1 val POLLUTANT  gen=  936 distinct=    3 modal= 96.0% eos=0.000 unit_ok=0.000 date_halluc=0.000
+      modal: '1.00.0.0, NOx(GT)=112 ug/m3 (sensor PT08.S3=1111), Non-Methane Hydrocarbons NMHC(GT)=11 ug/m'
+v1 test AH         gen= 1872 distinct=   60 modal= 20.9% eos=0.000 unit_ok=0.159 date_halluc=0.000
+      modal: '11.1.0.0.0.0.0.0.0.0.0.0.0.08.04, NOx(GT)=111'
+v1 test TEMP_RH    gen= 1872 distinct=    2 modal= 62.9% eos=0.000 unit_ok=0.000 date_halluc=0.000
+      modal: '1.0.0.00, the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature an'
+v1 test POLLUTANT  gen= 1872 distinct=    3 modal= 90.6% eos=0.000 unit_ok=0.000 date_halluc=0.000
+      modal: '1.00.0.0, NOx(GT)=112 ug/m3 (sensor PT08.S3=1111), Non-Methane Hydrocarbons NMHC(GT)=11 ug/m'
+v2 val AH         gen=  936 distinct=    3 modal= 84.3% eos=1.000 unit_ok=1.000 date_halluc=0.000
+      modal: 'The absolute humidity is 1.15 g/m3.\n<|endoftext|>'
+v2 val TEMP_RH    gen=  936 distinct=    5 modal= 83.5% eos=1.000 unit_ok=1.000 date_halluc=1.000
+      modal: 'On 04/04/2004 at 04.00.00, the ambient temperature was 21.2 degrees Celsius and the relative humidity was 21.2%.\n<|endof'
+v2 val POLLUTANT  gen=  936 distinct=    1 modal=100.0% eos=1.000 unit_ok=1.000 date_halluc=0.000
+      modal: 'Recorded CO is 2.2 mg/m3, NOx is 111 ppb, and NO2 is 111 ug/m3 with benzene level at 11.2 ug/m3.\n<|endoftext|>'
+v2 test AH         gen= 1872 distinct=    3 modal= 93.1% eos=1.000 unit_ok=1.000 date_halluc=0.000
+      modal: 'The absolute humidity is 1.15 g/m3.\n<|endoftext|>'
+v2 test TEMP_RH    gen= 1872 distinct=    5 modal= 89.2% eos=1.000 unit_ok=1.000 date_halluc=1.000
+      modal: 'On 04/04/2004 at 04.00.00, the ambient temperature was 21.2 degrees Celsius and the relative humidity was 21.2%.\n<|endof'
+v2 test POLLUTANT  gen= 1872 distinct=    1 modal=100.0% eos=1.000 unit_ok=1.000 date_halluc=0.000
+      modal: 'Recorded CO is 2.2 mg/m3, NOx is 111 ppb, and NO2 is 111 ug/m3 with benzene level at 11.2 ug/m3.\n<|endoftext|>'
+
+====================================================================================================
+MEMORISATION
+v1 val: verbatim trained answer 0 (0.00%), outputs keyed to a train row 0, mean |err| vs that train row n/a
+        dates seen in dataset 0, dates not in any split 0
+v1 test: verbatim trained answer 0 (0.00%), outputs keyed to a train row 0, mean |err| vs that train row n/a
+        dates seen in dataset 0, dates not in any split 0
+v2 val: verbatim trained answer 936 (33.33%), outputs keyed to a train row 936, mean |err| vs that train row 23.8806
+        dates seen in dataset 936, dates not in any split 0
+v2 test: verbatim trained answer 1872 (33.33%), outputs keyed to a train row 1872, mean |err| vs that train row 24.9397
+        dates seen in dataset 1872, dates not in any split 0
+
+====================================================================================================
+PAIRED v1 -> v2 (per predicted number, |err| comparison on identical prompts)
+val: AH better 679 / worse 73 / tie 0 (n=752)
+test: AH better 1458 / worse 209 / tie 0 (n=1667)
+
+wrote C:\Users\sanja\OneDrive\Documents\JAIN_Academics\SEM3\DT\SLM\docs\eval_v2\summary.json

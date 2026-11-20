@@ -1,0 +1,51 @@
+# Modelfile for Air Quality SLM v3
+# Registered as: air-quality-slm-v3:latest
+# Based on the continued-training improved model (air-quality-slm-improved:latest)
+# The original air-quality-slm:latest (v1) and air-quality-slm-improved:latest (v2) are left untouched.
+
+FROM ./models/air_quality_slm_finetuned/air_quality_slm_finetuned.gguf
+
+# v3 continues the continued-training with 128-token context window
+# This matches the improved model and allows the absolute-humidity template to fit
+PARAMETER num_ctx 128
+
+# Deterministic decoding, matching the trained model's behaviour
+# Greedy decoding (temp=0, top_k=1) reproduces the exact text the original checkpoint produces
+PARAMETER temperature 0
+PARAMETER top_k 1
+PARAMETER top_p 1.0
+PARAMETER min_p 0.0
+PARAMETER repeat_penalty 1.0
+PARAMETER repeat_last_n 64
+
+# Bounded output: 48 tokens is validated for temperature/RH answers
+# and ensures the model stays within the 128-trained context positions
+PARAMETER num_predict 48
+
+PARAMETER stop "<|endoftext|>"
+
+# Raw prompt template: the model is trained on raw instruction text, NOT ChatML.
+# The {{ .Prompt }} passthrough preserves the user's exact input format.
+# System guidance is embedded in how the prompt is constructed by the application,
+# not by adding ChatML markers that would break the trained distribution.
+TEMPLATE "{{ .System }}\n{{ .Prompt }}"
+
+
+# ── v3 Specific: System prompt guidance ──────────────────────────────────
+#
+# The {{ .System }} variable is injected by the application layer (app.py) before the template.
+# This compact system instruction guides the model's behaviour while conserving context.
+#
+# AIR-QUALITY DOMAIN GUIDANCE:
+# - Greetings: Introduce the assistant's domain and capabilities
+# - Supported questions: Retrieval or absolute-humidity calculation
+# - Out-of-domain: Polite refusal without numerical fabrication
+#
+# SYSTEM INSTRUCTION (injected by app.py):
+# "You are the Air Quality SLM Assistant. Provide concise natural-language explanations. "
+# "Never invent numerical values - use Python-authoritative lookups. "
+# "Return polite out-of-domain refusals for unsupported questions. "
+# "Use deterministic decoding (temp=0, top_k=1)."
+#
+# The model receives raw user prompts via {{ .Prompt }} and completes them appropriately.
+# Do not use ChatML markers; preserve the raw instruction text training format.

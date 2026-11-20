@@ -1,0 +1,153 @@
+# System Architecture
+
+## 1. Two systems, one interface
+
+The deployed assistant is deliberately split in two:
+
+| Layer | Supplies | Nature |
+|---|---|---|
+| **Neural** — the SLM (v1/v2/v3 in Ollama) | wording, field names, units, sentence shape, continuation of a trained template | statistical, not authoritative |
+| **Deterministic** — Python | every number: dataset lookups and the humidity formula | exact, auditable |
+
+Nothing in this document should be read as "the model computes the answer". The model writes; Python
+supplies. Figure `figures/architecture/fig15_system_architecture.png` shows the components and
+`fig14_query_routing.png` the routing logic.
+
+## 2. Runtime topology (as running on 19 November 2026)
+
+```
+Ollama Desktop (GUI) ──► 127.0.0.1:11434  Python proxy  (ollama_proxy.py)
+                                 │  forwards /api/*, adds X-AQ-Proxy: 1
+                                 ▼
+                          127.0.0.1:11435  ollama serve  (real Ollama 0.33.2)
+                                 │
+                                 ▼
+                          GGUF models: air-quality-slm, -improved, -v3
+```
+
+* Ports are bound to localhost only.
+* The proxy binds 11434 **exclusively** on Windows (`SO_EXCLUSIVEADDRUSE`), so a second listener
+  (another proxy, or Ollama's own server) cannot share the port.
+* If the proxy dies, Ollama Desktop starts its own server on 11434 — the failure mode that made the
+  deployment look "fine" while bypassing the proxy. `proxy_watchdog.py` detects this and restores the
+  topology by restarting Desktop (bounded restart budget), and every proxy response carries
+  `X-AQ-Proxy: 1` so the diagnostics can identify who owns the port.
+
+This supervision layer is deployment hygiene; it does not touch model weights, tokenizer, retrieval
+or the humidity logic.
+
+## 3. Components
+
+| Component | File | Responsibility |
+|---|---|---|
+| Interactive shell | `app.py` | chat loop, date/time extraction, response assembly |
+| Domain guard | `domain_guard.py` | greeting detection, out-of-domain detection, intent classification, reset |
+| Dataset lookup | `data_retrieval.py` | exact `(Date, Time)` match against `data/processed/*.csv`, NaN-aware |
+| Humidity calculation | `humidity_calculator.py` | Tetens saturation pressure × dataset-fitted scale |
+| Ollama client | `ollama_client.py` | HTTP calls to the Ollama API, model availability check |
+| Proxy | `ollama_proxy.py` | HTTP relay/route on 11434, identity header, exclusive bind |
+| Watchdog | `proxy_watchdog.py` | process supervision, port takeover recovery, restart budget |
+| Control CLI | `scripts/integration_ctl.py` | start/stop/status with port-ownership verification |
+
+## 4. Data flow
+
+### 4.1 Retrieval request (numbers from Python)
+
+```
+user: "What was the NOx concentration on 08/12/2004 at 15:00?"
+  │
+  ├─ domain_guard.is_greeting()          → False
+  ├─ domain_guard.is_out_of_domain()     → False (explicit date present)
+  ├─ domain_guard.detect_intent()        → "retrieval"
+  ├─ app._extract_date_time()            → ("08/12/2004", "15.00.00")
+  ├─ app.handle_retrieval(): tries val → test → train splits
+  │     data_retrieval.find_record("08/12/2004","15.00.00", split)
+  │     → pandas mask on Date + Time columns (exact string match)
+  └─ formats: CO, NOx, NO2, benzene, NMHC, T, RH, AH, PT08 sensors
+```
+
+Verified example: `08/12/2004 15:00` (validation row 0) returns CO 1.2, NOx 179.0 ppb, NO2 82.0,
+C6H6 4.6, T 16.7 °C, RH 54.7 %, AH 1.0311 — the dataset's own values.
+
+**Known defect:** `handle_retrieval` labels CO and NOx as `ug/m3` although the dataset stores CO in
+mg/m³ and NOx in ppb. The values are correct; the unit strings are wrong. See
+`MISSING_EVIDENCE.md` §5.
+
+### 4.2 Absolute-humidity request (numbers from Python)
+
+```
+"Calculate absolute humidity for T = 16.7 C and RH = 54.7%"
+  ├─ detect_intent → "ah_calculation"
+  ├─ app.parse_ah_request() → ("16.7", "54.7")
+  ├─ humidity_calculator.calculate_absolute_humidity(16.7, 54.7)
+  │     e_s = 6.112*exp(17.67*T/(T+237.3))       (code)
+  │     AH  = scale * 216.7*(e_s*RH/100)/(T+273.15)
+  │     scale from get_scale_factor()            = 0.12874776…
+  └─ "Absolute Humidity: 1.0284 g/m3"
+```
+
+Cross-check: dataset row for the same T/RH has AH = 1.0311 g/m³, so the calculator is within
+0.003 g/m³. Note the two implementation details that do **not** match the module docstring — the
+Tetens denominator is 237.3 (not 243.5) and the scale is derived at run time from the first valid
+training row (not a least-squares fit, and not the documented ≈0.976). Both are flagged in
+`MISSING_EVIDENCE.md`; the numeric effect is small because the dataset column and the formula are
+almost collinear (r = 0.9996).
+
+### 4.3 Out-of-domain request (no model call)
+
+`domain_guard.OUTOFDOMAIN_KEYWORDS` plus a question-mark heuristic ("is there any air-quality term?",
+with an explicit-date escape hatch and a humidity exception). Greetings and refusals are **template
+strings**, never generated by the network. Consequence for the paper: any refusal the user sees is
+evidence of `domain_guard.py`, not of model alignment.
+
+### 4.4 Model path
+
+`ollama_client.generate_response()` → `POST /api/generate` against the proxy → Ollama. Used for
+free-form continuation of a trained template (e.g. `Air quality measurement report for … CO(GT)=`).
+The model's raw prompts, decoding parameters and outputs are documented in
+`ollama/deployment_documentation.md`.
+
+## 5. What works where (Ollama Desktop vs Python application)
+
+| Function | Ollama Desktop directly | Needs the Python application |
+|---|---|---|
+| Load and run a GGUF, show tokens, stream output | ✅ | — |
+| Continue a trained template ("report continuation") | ✅ (greedy, bounded) | — |
+| Format field names and units in-domain | ✅ | — |
+| Look up the true reading for a date/time | ❌ (no retrieval) | ✅ `data_retrieval.py` |
+| Compute absolute humidity from T and RH | ❌ (constant output) | ✅ `humidity_calculator.py` |
+| Refuse out-of-domain questions | ❌ (no refusal training; it continues text) | ✅ `domain_guard.py` |
+| Greet and explain capabilities | ❌ | ✅ `app.WELCOME_MESSAGE` |
+| Parse free-form dates and times | ❌ | ✅ `app._extract_date_time` |
+| Report "no record for that date" | ❌ | ✅ `handle_retrieval` fallback |
+
+## 6. Failure modes and their handling
+
+| Failure | Detected by | Handling |
+|---|---|---|
+| Proxy not started | `integration_ctl status` (11 checks) | `start_ollama_proxy.bat` starts backend, then proxy, verifies port ownership |
+| Ollama Desktop starts its own server on 11434 | watchdog HTTP identity check (+ missing `X-AQ-Proxy`) | restart Desktop, then re-verify port owner |
+| Backend `ollama serve` dies | watchdog port probe on 11435 | respawn, wait for `/api/version`, verify proxy PID unchanged |
+| Proxy crash loop | restart budget (6 restarts / 10 min per service) | pause recovery for 10 min, log a manual-action line |
+| Laptop sleep/resume | wall-clock gap detection (5 s tick vs elapsed) | run a post-resume pass; log `SLEEP/RESUME detected` |
+| Duplicate proxies | command-line role detection | start refuses; stop sweeps strays |
+
+Manual procedure and rollback: `application/documentation/INTEGRATION_OPERATIONS.md`.
+
+## 7. Ports, files and state
+
+| Item | Location |
+|---|---|
+| Proxy | `127.0.0.1:11434` (`ollama_proxy.py`) |
+| Ollama server | `127.0.0.1:11435` (`ollama serve`) |
+| Request log | `proxy_access.log` |
+| Service logs | `proxy.log`, `backend.log`, `watchdog.log`, `recovery.log` (rotated to `.prev`) |
+| Models | `%USERPROFILE%\.ollama\models\blobs\…` (registered via Modelfiles) |
+| Python state | `data/processed/*.csv`, `models/*` — no database, no cache |
+
+## 8. Security and privacy notes
+
+* Everything binds to localhost; no request leaves the machine.
+* No API keys, tokens or credentials appear in any source file, Modelfile or document in this
+  package (checked while assembling it).
+* The dataset is public (CC BY 4.0) and contains no personal data.

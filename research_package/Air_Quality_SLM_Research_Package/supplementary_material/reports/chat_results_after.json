@@ -1,0 +1,38 @@
+{
+  "prompt_1": {
+    "prompt": "what is the humidity?",
+    "output": " Result: 1.1 ug/m3.\n",
+    "chars": 20,
+    "eval_count": 11,
+    "done_reason": "stop",
+    "prompt_eval_count": 5,
+    "cjk_chars": 0
+  },
+  "prompt_2": {
+    "prompt": "What were the temperature and relative humidity?",
+    "output": " Result: 11.8/20004 at 1.0.0.00, NOx(GT)=111 ug/m3 (sensor PT08.S2=1111), Non-Methane Hydrocarbons NMHC(GT)=11 ug/m",
+    "chars": 115,
+    "eval_count": 64,
+    "done_reason": "length",
+    "prompt_eval_count": 8,
+    "cjk_chars": 0
+  },
+  "prompt_3": {
+    "prompt": "Air quality measurement report for 15/04/2004 at 12.00.00:",
+    "output": " What were the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient",
+    "chars": 442,
+    "eval_count": 64,
+    "done_reason": "length",
+    "prompt_eval_count": 27,
+    "cjk_chars": 0
+  },
+  "prompt_4": {
+    "prompt": "Air quality measurement report for 10/03/2004 at 18.00.00: Carbon Monoxide CO(GT)=",
+    "output": "1.8 ug/m3 (sensor PT08.S3=1111), Non-Methane Hydrocarbons NMHC(GT)=1.8 ug/m3 (sensor PT08.S2=1111), Benzene C66(GT)=1.8 ug/m3",
+    "chars": 125,
+    "eval_count": 64,
+    "done_reason": "length",
+    "prompt_eval_count": 34,
+    "cjk_chars": 0
+  }
+}

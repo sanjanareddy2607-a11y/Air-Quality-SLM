@@ -1,0 +1,74 @@
+{
+  "REPORT": {
+    "prompt": "Air quality measurement report for 08/12/2004 at 15.00.00: Carbon Monoxide CO(GT)=",
+    "expected": "1.2 mg/m3 (sensor PT08.S1=997), Non-Methane Hydrocarbons NMHC(GT)=Unavailable ug/m3 (sensor PT08.S2=742), Benzene C6H6(GT)=4.6 ug/m3, Nitrogen Oxides NOx(GT)=179 ppb (sensor PT08.S3=911), Nitrogen Dioxide NO2(GT)=82 ug/m3 (sensor PT08.S4=1180), Ozone sensor PT08.S5=899, Temperature=16.7 C, Relative Humidity=54.7 %, Absolute Humidity=1.03 g/m3.",
+    "models": {
+      "original": {
+        "text": "1.8 ug/m3 (sensor PT08.S3=1111), Non-Methane Hydrocarbons NMHC(GT)=1.8 ug/m3 (sensor PT",
+        "prompt_eval_count": 34,
+        "eval_count": 40,
+        "done": "length"
+      },
+      "improved": {
+        "text": "1.2 mg/m3 (sensor PT08.S1=1021), Non-Methane Hydrocarbons NMHC(GT)=Unavailable ug/m3 (sensor PT08",
+        "prompt_eval_count": 34,
+        "eval_count": 40,
+        "done": "length"
+      }
+    }
+  },
+  "AH": {
+    "prompt": "Task: Predict the absolute humidity given the following parameters: Date: 08/12/2004, Time: 15.00.00, CO(GT): 1.2, NOx(GT): 179, NO2(GT): 82, Temperature: 16.7 C, Relative Humidity: 54.7 %. Response:",
+    "expected": " The absolute humidity is 1.03 g/m3.",
+    "models": {
+      "original": {
+        "text": " What were the ambient temperature and relative humidity is 1.1 ug/m3.\n",
+        "prompt_eval_count": 34,
+        "eval_count": 18,
+        "done": "stop"
+      },
+      "improved": {
+        "text": " The absolute humidity is 1.15 g/m3.\n",
+        "prompt_eval_count": 86,
+        "eval_count": 14,
+        "done": "stop"
+      }
+    }
+  },
+  "TEMP_RH": {
+    "prompt": "Question: What were the ambient temperature and relative humidity recorded on 08/12/2004 at 15.00.00? Answer:",
+    "expected": " On 08/12/2004 at 15.00.00, the ambient temperature was 16.7 degrees Celsius and the relative humidity was 54.7%.",
+    "models": {
+      "original": {
+        "text": " 1.0.0.00, the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient",
+        "prompt_eval_count": 36,
+        "eval_count": 40,
+        "done": "length"
+      },
+      "improved": {
+        "text": " On 04/04/2004 at 04.00.00, the ambient temperature was 21.2 degrees Celsius and the relative humidity was ",
+        "prompt_eval_count": 36,
+        "eval_count": 40,
+        "done": "length"
+      }
+    }
+  },
+  "POLLUTANT": {
+    "prompt": "Query: What are the primary pollutant concentrations (CO, NOx, NO2) on 08/12/2004 at 15.00.00? Result:",
+    "expected": " Recorded CO is 1.2 mg/m3, NOx is 179 ppb, and NO2 is 82 ug/m3 with benzene level at 4.6 ug/m3.",
+    "models": {
+      "original": {
+        "text": " 1.00.0.0, NOx(GT)=112 ug/m3 (sensor PT08.S3=1111), Non-Methane Hydrocar",
+        "prompt_eval_count": 43,
+        "eval_count": 40,
+        "done": "length"
+      },
+      "improved": {
+        "text": " Recorded CO is 2.2 mg/m3, NOx is 111 ppb, and NO2 is 111 ug/m3 with benzene level at 11",
+        "prompt_eval_count": 43,
+        "eval_count": 40,
+        "done": "length"
+      }
+    }
+  }
+}

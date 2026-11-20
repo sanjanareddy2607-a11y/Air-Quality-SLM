@@ -1,0 +1,30 @@
+{
+  "T1 full record": {
+    "prompt": "Air quality measurement report for 10/03/2004 at 18.00.00: Carbon Monoxide CO(GT)=",
+    "tokens": 34,
+    "truth_tail": " Oxides NOx(GT)=166 ppb (sensor PT08.S3=1056), Nitrogen Dioxide NO2(GT)=113 ug/m3 (sensor PT08.S4=1692), Ozone sensor PT08.S5=1268, Temperature=13.6 C, Relative Humidity=48.9 %, Absolute Humidity=0.76 g/m3.\n<|endoftext|>",
+    "pytorch_greedy": "1.8 ug/m3 (sensor PT08.S3=1111), Non-Methane Hydrocarbons NMHC(GT)=1.8 ug/m3 (sensor PT08.S2=111"
+  },
+  "T2 absolute humidity": {
+    "prompt": "Task: Predict the absolute humidity given the following parameters: Date: 10/03/2004, Time: 18.00.00, Temperature: 13.6 C, Relative Humidity: 48.9 %. Response:",
+    "tokens": 58,
+    "truth_tail": "idity given the following parameters: Date: 10/03/2004, Time: 18.00.00, CO(GT): 2.6, NOx(GT): 166, NO2(GT): 113, Temperature: 13.6 C, Relative Humidity: 48.9 %. Response: The absolute humidity is 0.76 g/m3.\n<|endoftext|>",
+    "pytorch_greedy": " 11.0.0.00, Relative Humidity: 1.0.0.00, Relative Humidity: 1.0.0.00.0.0.0.0.0"
+  },
+  "T3 temp/RH Q&A": {
+    "prompt": "Question: What were the ambient temperature and relative humidity recorded on 10/03/2004 at 18.00.00? Answer:",
+    "tokens": 36,
+    "truth_tail": "ere the ambient temperature and relative humidity recorded on 10/03/2004 at 18.00.00? Answer: On 10/03/2004 at 18.00.00, the ambient temperature was 13.6 degrees Celsius and the relative humidity was 48.9%.\n<|endoftext|>",
+    "pytorch_greedy": " 1.0.0.00, the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient"
+  },
+  "T4 pollutant query": {
+    "prompt": "Query: What are the primary pollutant concentrations (CO, NOx, NO2) on 10/03/2004 at 18.00.00? Result:",
+    "tokens": 43,
+    "truth_tail": "Query: What are the primary pollutant concentrations (CO, NOx, NO2) on 10/03/2004 at 18.00.00? Result: Recorded CO is 2.6 mg/m3, NOx is 166 ppb, and NO2 is 113 ug/m3 with benzene level at 11.9 ug/m3.\n<|endoftext|>",
+    "pytorch_greedy": " 1.00.0.0, NOx(GT)=112 ug/m3 (sensor PT08.S3=1111), Non-Methane Hydrocarbons NMHC(GT)=1."
+  },
+  "runaway": {
+    "text": ": 03.8 ug/m3.\n",
+    "cjk": []
+  }
+}

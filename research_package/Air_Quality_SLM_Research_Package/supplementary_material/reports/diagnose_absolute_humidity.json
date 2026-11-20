@@ -1,0 +1,270 @@
+{
+  "template_lengths": {
+    "input_tokens": 86,
+    "full_tokens": 101,
+    "block_size": 64,
+    "response_occurrences": 6549,
+    "expected_boundary_windows": 2.5839687929905226,
+    "corpus_coverage_pct": 2.525126322074602
+  },
+  "pytorch": {
+    "truncated_ids": [
+      3555,
+      1033,
+      279,
+      34188,
+      9315,
+      323,
+      279,
+      34188,
+      9315,
+      323,
+      279,
+      34188,
+      9315,
+      323,
+      279,
+      34188,
+      9315,
+      323,
+      279,
+      34188,
+      9315,
+      323,
+      279,
+      34188,
+      9315,
+      323,
+      279,
+      34188,
+      9315,
+      323,
+      279,
+      34188,
+      9315,
+      323,
+      279,
+      34188,
+      9315,
+      323,
+      279,
+      34188
+    ],
+    "truncated_text": " What were the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient",
+    "full_top10": [
+      {
+        "id": 220,
+        "token": " ",
+        "prob": 0.096517,
+        "logprob": -2.338037
+      },
+      {
+        "id": 3555,
+        "token": " What",
+        "prob": 0.095553,
+        "logprob": -2.348077
+      },
+      {
+        "id": 25,
+        "token": ":",
+        "prob": 0.071993,
+        "logprob": -2.63119
+      },
+      {
+        "id": 576,
+        "token": " The",
+        "prob": 0.071106,
+        "logprob": -2.643577
+      },
+      {
+        "id": 96364,
+        "token": " Recorded",
+        "prob": 0.041372,
+        "logprob": -3.185142
+      },
+      {
+        "id": 21487,
+        "token": " Carbon",
+        "prob": 0.031415,
+        "logprob": -3.460465
+      },
+      {
+        "id": 1913,
+        "token": " On",
+        "prob": 0.025329,
+        "logprob": -3.675822
+      },
+      {
+        "id": 17,
+        "token": "2",
+        "prob": 0.022231,
+        "logprob": -3.806277
+      },
+      {
+        "id": 2631,
+        "token": " Date",
+        "prob": 0.02205,
+        "logprob": -3.814444
+      },
+      {
+        "id": 15,
+        "token": "0",
+        "prob": 0.019629,
+        "logprob": -3.930731
+      }
+    ],
+    "full_ids": [
+      220,
+      16,
+      16,
+      13,
+      16,
+      13,
+      15,
+      13,
+      15,
+      13,
+      15,
+      13,
+      15,
+      13,
+      15,
+      13,
+      15,
+      13,
+      15,
+      13,
+      15,
+      13,
+      15,
+      13,
+      15,
+      13,
+      15,
+      13,
+      15,
+      23,
+      13,
+      15,
+      19,
+      11,
+      5664,
+      87,
+      6699,
+      51,
+      11730,
+      16
+    ],
+    "full_text": " 11.1.0.0.0.0.0.0.0.0.0.0.0.08.04, NOx(GT)=1",
+    "true_answer_ids": [
+      576,
+      10740,
+      37093,
+      374,
+      220,
+      16,
+      13,
+      15,
+      18,
+      342,
+      3183,
+      18,
+      624,
+      151643,
+      198
+    ],
+    "true_answer_logprobs": [
+      {
+        "id": 576,
+        "token": " The",
+        "logprob": -2.643577
+      },
+      {
+        "id": 10740,
+        "token": " absolute",
+        "logprob": -1.14779
+      },
+      {
+        "id": 37093,
+        "token": " humidity",
+        "logprob": -0.501847
+      },
+      {
+        "id": 374,
+        "token": " is",
+        "logprob": -1.271656
+      },
+      {
+        "id": 220,
+        "token": " ",
+        "logprob": -0.261844
+      },
+      {
+        "id": 16,
+        "token": "1",
+        "logprob": -1.181005
+      },
+      {
+        "id": 13,
+        "token": ".",
+        "logprob": -1.442682
+      },
+      {
+        "id": 15,
+        "token": "0",
+        "logprob": -2.436087
+      },
+      {
+        "id": 18,
+        "token": "3",
+        "logprob": -3.135639
+      },
+      {
+        "id": 342,
+        "token": " g",
+        "logprob": -3.301438
+      },
+      {
+        "id": 3183,
+        "token": "/m",
+        "logprob": -0.206099
+      },
+      {
+        "id": 18,
+        "token": "3",
+        "logprob": -0.298671
+      },
+      {
+        "id": 624,
+        "token": ".\n",
+        "logprob": -0.579291
+      },
+      {
+        "id": 151643,
+        "token": "<|endoftext|>",
+        "logprob": -0.25277
+      },
+      {
+        "id": 198,
+        "token": "\n",
+        "logprob": -0.276524
+      }
+    ],
+    "true_answer_total_logprob": -18.93691737949848
+  },
+  "llamacpp_error": "HTTP Error 400: Bad Request",
+  "ollama_ctx64": {
+    "prompt_eval_count": 34,
+    "text": " What were the ambient temperature and relative humidity is 1.1 ug/m3.\n",
+    "done": "stop"
+  },
+  "ollama_ctx512": {
+    "prompt_eval_count": 34,
+    "text": " What were the ambient temperature and relative humidity is 1.1 ug/m3.\n",
+    "done": "stop"
+  },
+  "prompt": "Task: Predict the absolute humidity given the following parameters: Date: 08/12/2004, Time: 15.00.00, CO(GT): 1.2, NOx(GT): 179, NO2(GT): 82, Temperature: 16.7 C, Relative Humidity: 54.7 %. Response:",
+  "expected": " The absolute humidity is 1.03 g/m3.\n<|endoftext|>\n",
+  "dataset_ah": 1.0311,
+  "computed_ah": 7.757252011775479
+}

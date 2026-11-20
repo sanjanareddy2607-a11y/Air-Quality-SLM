@@ -1,0 +1,23 @@
+{
+  "train": {
+    "bin_path": "C:\\Users\\sanja\\OneDrive\\Documents\\JAIN_Academics\\SEM3\\DT\\SLM\\training\\data_bin\\train.bin",
+    "num_tokens": 3041432,
+    "dtype": "uint32",
+    "num_text_samples": 26196,
+    "source_rows": 6549
+  },
+  "val": {
+    "bin_path": "C:\\Users\\sanja\\OneDrive\\Documents\\JAIN_Academics\\SEM3\\DT\\SLM\\training\\data_bin\\val.bin",
+    "num_tokens": 431740,
+    "dtype": "uint32",
+    "num_text_samples": 3744,
+    "source_rows": 936
+  },
+  "test": {
+    "bin_path": "C:\\Users\\sanja\\OneDrive\\Documents\\JAIN_Academics\\SEM3\\DT\\SLM\\training\\data_bin\\test.bin",
+    "num_tokens": 870987,
+    "dtype": "uint32",
+    "num_text_samples": 7488,
+    "source_rows": 1872
+  }
+}
