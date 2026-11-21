@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420" font-family="Segoe UI,Arial,sans-serif" font-size="12">
+<rect width="760" height="420" fill="#ffffff"/>
+<text x="64" y="18" font-size="14" font-weight="600">Air Quality SLM — continued training loss</text>
+<line x1="64" y1="374.0" x2="736" y2="374.0" stroke="#e8e8e8"/>
+<text x="56" y="378.0" text-anchor="end" fill="#666">0.30</text>
+<line x1="64" y1="304.8" x2="736" y2="304.8" stroke="#e8e8e8"/>
+<text x="56" y="308.8" text-anchor="end" fill="#666">0.55</text>
+<line x1="64" y1="235.6" x2="736" y2="235.6" stroke="#e8e8e8"/>
+<text x="56" y="239.6" text-anchor="end" fill="#666">0.81</text>
+<line x1="64" y1="166.4" x2="736" y2="166.4" stroke="#e8e8e8"/>
+<text x="56" y="170.4" text-anchor="end" fill="#666">1.06</text>
+<line x1="64" y1="97.2" x2="736" y2="97.2" stroke="#e8e8e8"/>
+<text x="56" y="101.2" text-anchor="end" fill="#666">1.31</text>
+<line x1="64" y1="28.0" x2="736" y2="28.0" stroke="#e8e8e8"/>
+<text x="56" y="32.0" text-anchor="end" fill="#666">1.57</text>
+<text x="64.0" y="392" text-anchor="middle" fill="#666">0</text>
+<text x="198.4" y="392" text-anchor="middle" fill="#666">240</text>
+<text x="332.8" y="392" text-anchor="middle" fill="#666">480</text>
+<text x="467.2" y="392" text-anchor="middle" fill="#666">720</text>
+<text x="601.6" y="392" text-anchor="middle" fill="#666">960</text>
+<text x="736.0" y="392" text-anchor="middle" fill="#666">1200</text>
+<text x="400" y="412" text-anchor="middle" fill="#444">training step</text>
+<line x1="64" y1="61.5" x2="736" y2="61.5" stroke="#888" stroke-width="1.5" stroke-dasharray="6 4"/>
+<polyline points="176.0,265.9 288.0,304.1 400.0,311.8 512.0,314.3 624.0,322.3 736.0,322.0" fill="none" stroke="#1f77b4" stroke-width="2"/>
+<circle cx="176.0" cy="265.9" r="3" fill="#1f77b4"/>
+<circle cx="288.0" cy="304.1" r="3" fill="#1f77b4"/>
+<circle cx="400.0" cy="311.8" r="3" fill="#1f77b4"/>
+<circle cx="512.0" cy="314.3" r="3" fill="#1f77b4"/>
+<circle cx="624.0" cy="322.3" r="3" fill="#1f77b4"/>
+<circle cx="736.0" cy="322.0" r="3" fill="#1f77b4"/>
+<polyline points="176.0,280.5 288.0,320.7 400.0,327.7 512.0,333.9 624.0,337.9 736.0,340.5" fill="none" stroke="#ff7f0e" stroke-width="2"/>
+<circle cx="176.0" cy="280.5" r="3" fill="#ff7f0e"/>
+<circle cx="288.0" cy="320.7" r="3" fill="#ff7f0e"/>
+<circle cx="400.0" cy="327.7" r="3" fill="#ff7f0e"/>
+<circle cx="512.0" cy="333.9" r="3" fill="#ff7f0e"/>
+<circle cx="624.0" cy="337.9" r="3" fill="#ff7f0e"/>
+<circle cx="736.0" cy="340.5" r="3" fill="#ff7f0e"/>
+<line x1="72" y1="34" x2="94" y2="34" stroke="#1f77b4" stroke-width="2.5"/>
+<text x="102" y="38" fill="#333">val loss</text>
+<line x1="72" y1="52" x2="94" y2="52" stroke="#ff7f0e" stroke-width="2.5"/>
+<text x="102" y="56" fill="#333">train loss (ema)</text>
+<line x1="72" y1="70" x2="94" y2="70" stroke="#888888" stroke-width="2.5" stroke-dasharray="6 4"/>
+<text x="102" y="74" fill="#333">baseline val (original checkpoint)</text>
+</svg>

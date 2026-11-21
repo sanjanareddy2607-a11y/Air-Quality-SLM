@@ -1,0 +1,1210 @@
+{
+  "v1_val": {
+    "model": "v1",
+    "split": "val",
+    "n_records": 3744,
+    "teacher_forced": {
+      "REPORT": {
+        "n": 0,
+        "answer_loss": null,
+        "answer_ppl": null,
+        "top1_token_acc": null
+      },
+      "AH": {
+        "n": 936,
+        "answer_loss": 1.4798496320971057,
+        "answer_ppl": 4.3922851725500625,
+        "top1_token_acc": 0.6663123201584741
+      },
+      "TEMP_RH": {
+        "n": 936,
+        "answer_loss": 1.5306234986354144,
+        "answer_ppl": 4.621057147092565,
+        "top1_token_acc": 0.6541948188577709
+      },
+      "POLLUTANT": {
+        "n": 936,
+        "answer_loss": 1.3656259645254185,
+        "answer_ppl": 3.918174923026717,
+        "top1_token_acc": 0.7268251288586438
+      },
+      "ALL": {
+        "n": 2808,
+        "answer_loss": 1.4586996984193128,
+        "answer_ppl": 4.30036412101101
+      }
+    },
+    "numeric": {
+      "AH:AH": {
+        "n": 752,
+        "mae": 9.337962632978723,
+        "rmse": 9.815079409761978,
+        "bias": 9.336896143617022,
+        "pred_mean": 10.061702127659572,
+        "pred_std": 3.0093774143351255,
+        "gold_mean": 0.7248059840425533,
+        "gold_std": 0.22419542696533742,
+        "within_5pct": 0.015957446808510637,
+        "within_10pct": 0.026595744680851064,
+        "exact": 0.0,
+        "pearson_r": -0.038194070354962334,
+        "generated": 936,
+        "parsed": 884,
+        "prediction_parsed_rate": 0.9444444444444444,
+        "gold_missing": 132,
+        "scored": 752,
+        "extraction_rate": 0.8034188034188035,
+        "constant_mae": 0.4587364177588855,
+        "constant_rmse": 0.5099330426356582,
+        "mae_vs_constant": 20.355834574020694
+      },
+      "TEMP_RH:T": {
+        "n": 0,
+        "generated": 936,
+        "parsed": 0,
+        "prediction_parsed_rate": 0.0,
+        "gold_missing": 132,
+        "scored": 0,
+        "extraction_rate": 0.0,
+        "constant_mae": 11.491155513636313,
+        "constant_rmse": 12.03009528934361,
+        "mae_vs_constant": 0.0
+      },
+      "TEMP_RH:RH": {
+        "n": 0,
+        "generated": 936,
+        "parsed": 0,
+        "prediction_parsed_rate": 0.0,
+        "gold_missing": 132,
+        "scored": 0,
+        "extraction_rate": 0.0,
+        "constant_mae": 15.713303289053872,
+        "constant_rmse": 18.286990414108164,
+        "mae_vs_constant": 0.0
+      },
+      "POLLUTANT:CO": {
+        "n": 0,
+        "generated": 936,
+        "parsed": 0,
+        "prediction_parsed_rate": 0.0,
+        "gold_missing": 109,
+        "scored": 0,
+        "extraction_rate": 0.0,
+        "constant_mae": 1.2244693862060703,
+        "constant_rmse": 1.6740114693799206,
+        "mae_vs_constant": 0.0
+      },
+      "POLLUTANT:NOx": {
+        "n": 0,
+        "generated": 936,
+        "parsed": 0,
+        "prediction_parsed_rate": 0.0,
+        "gold_missing": 131,
+        "scored": 0,
+        "extraction_rate": 0.0,
+        "constant_mae": 233.88798120201378,
+        "constant_rmse": 318.44420331078885,
+        "mae_vs_constant": 0.0
+      },
+      "POLLUTANT:NO2": {
+        "n": 0,
+        "generated": 936,
+        "parsed": 0,
+        "prediction_parsed_rate": 0.0,
+        "gold_missing": 131,
+        "scored": 0,
+        "extraction_rate": 0.0,
+        "constant_mae": 42.187675634037646,
+        "constant_rmse": 52.12618976850888,
+        "mae_vs_constant": 0.0
+      },
+      "POLLUTANT:C6H6": {
+        "n": 0,
+        "generated": 936,
+        "parsed": 0,
+        "prediction_parsed_rate": 0.0,
+        "gold_missing": 132,
+        "scored": 0,
+        "extraction_rate": 0.0,
+        "constant_mae": 5.677826206415198,
+        "constant_rmse": 6.881426172545205,
+        "mae_vs_constant": 0.0
+      }
+    },
+    "diversity": {
+      "AH": {
+        "generated": 936,
+        "distinct": 55,
+        "modal_share": 0.20726495726495728,
+        "modal_output": "11.0.0.0.0.0.0.0.0.0.0.0.0.04, NOx(GT)=111 ug/m"
+      },
+      "TEMP_RH": {
+        "generated": 936,
+        "distinct": 2,
+        "modal_share": 0.5886752136752137,
+        "modal_output": "1.0.0.00, the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature an"
+      },
+      "POLLUTANT": {
+        "generated": 936,
+        "distinct": 3,
+        "modal_share": 0.9604700854700855,
+        "modal_output": "1.00.0.0, NOx(GT)=112 ug/m3 (sensor PT08.S3=1111), Non-Methane Hydrocarbons NMHC(GT)=11 ug/m"
+      }
+    },
+    "structure_by_kind": {
+      "AH": {
+        "generated": 936,
+        "eos_rate": 0.0,
+        "repetitive_rate": 0.05555555555555555,
+        "unit_ok_rate": 0.16452991452991453,
+        "wrong_unit_rate": 0.0,
+        "date_in_output_rate": 0.0,
+        "date_matches_query_rate": 0.0,
+        "date_hallucinated_rate": 0.0
+      },
+      "TEMP_RH": {
+        "generated": 936,
+        "eos_rate": 0.0,
+        "repetitive_rate": 1.0,
+        "unit_ok_rate": 0.0,
+        "wrong_unit_rate": 0.0,
+        "date_in_output_rate": 0.0,
+        "date_matches_query_rate": 0.0,
+        "date_hallucinated_rate": 0.0
+      },
+      "POLLUTANT": {
+        "generated": 936,
+        "eos_rate": 0.0,
+        "repetitive_rate": 0.0,
+        "unit_ok_rate": 0.0,
+        "wrong_unit_rate": 1.0,
+        "date_in_output_rate": 0.0,
+        "date_matches_query_rate": 0.0,
+        "date_hallucinated_rate": 0.0
+      }
+    },
+    "structure": {
+      "generated": 2808,
+      "eos_rate": 0.0,
+      "ran_to_cap_rate": 1.0,
+      "repetitive_rate": 0.35185185185185186,
+      "no_digits_rate": 0.018518518518518517,
+      "unit_ok_rate": 0.054843304843304845,
+      "wrong_unit_rate": 0.3333333333333333,
+      "replacement_char_rate": 0.0,
+      "empty_rate": 0.0,
+      "extra_text_rate": 0.0,
+      "gold_prefix_rate": 0.0,
+      "date_in_output_rate": 0.0,
+      "date_matches_query_rate": 0.0,
+      "date_hallucinated_rate": 0.0,
+      "dates_seen_in_train": 0,
+      "dates_not_in_any_split": 0,
+      "outputs_matching_a_train_row_key": 0,
+      "malformed_rate": 1.0
+    },
+    "memorisation": {
+      "verbatim_training_answer_rate": 0.0,
+      "verbatim_count": 0,
+      "outputs_with_train_row_key": 0,
+      "mean_abs_err_vs_that_train_row": null
+    }
+  },
+  "v2_val": {
+    "model": "v2",
+    "split": "val",
+    "n_records": 3744,
+    "teacher_forced": {
+      "REPORT": {
+        "n": 0,
+        "answer_loss": null,
+        "answer_ppl": null,
+        "top1_token_acc": null
+      },
+      "AH": {
+        "n": 936,
+        "answer_loss": 0.3607333529318691,
+        "answer_ppl": 1.4343809364100317,
+        "top1_token_acc": 0.8384863000247617
+      },
+      "TEMP_RH": {
+        "n": 936,
+        "answer_loss": 0.5946529911687741,
+        "answer_ppl": 1.812401916356522,
+        "top1_token_acc": 0.7886597762861272
+      },
+      "POLLUTANT": {
+        "n": 936,
+        "answer_loss": 0.4720471532553689,
+        "answer_ppl": 1.603272981484542,
+        "top1_token_acc": 0.8379434491966761
+      },
+      "ALL": {
+        "n": 2808,
+        "answer_loss": 0.4758111657853374,
+        "answer_ppl": 1.609319092756768
+      }
+    },
+    "numeric": {
+      "AH:AH": {
+        "n": 804,
+        "mae": 0.4334578358208954,
+        "rmse": 0.4870907809311927,
+        "bias": 0.43280659203980093,
+        "pred_mean": 1.1503731343283585,
+        "pred_std": 0.002706188711114741,
+        "gold_mean": 0.7175665422885572,
+        "gold_std": 0.22346242393950677,
+        "within_5pct": 0.013681592039800995,
+        "within_10pct": 0.053482587064676616,
+        "exact": 0.0,
+        "pearson_r": 0.005701385931365982,
+        "generated": 936,
+        "parsed": 936,
+        "prediction_parsed_rate": 1.0,
+        "gold_missing": 132,
+        "scored": 804,
+        "extraction_rate": 0.8589743589743589,
+        "constant_mae": 0.4587364177588855,
+        "constant_rmse": 0.5099330426356582,
+        "mae_vs_constant": 0.9448951926217537
+      },
+      "TEMP_RH:T": {
+        "n": 804,
+        "mae": 11.026243781094525,
+        "rmse": 11.586828278361546,
+        "bias": 11.026243781094525,
+        "pred_mean": 21.199999999999996,
+        "pred_std": 3.552713678800501e-15,
+        "gold_mean": 10.17375621890547,
+        "gold_std": 3.5604125648740577,
+        "within_5pct": 0.0,
+        "within_10pct": 0.0,
+        "exact": 0.0,
+        "pearson_r": null,
+        "generated": 936,
+        "parsed": 936,
+        "prediction_parsed_rate": 1.0,
+        "gold_missing": 132,
+        "scored": 804,
+        "extraction_rate": 0.8589743589743589,
+        "constant_mae": 11.491155513636313,
+        "constant_rmse": 12.03009528934361,
+        "mae_vs_constant": 0.9595417769788176
+      },
+      "TEMP_RH:RH": {
+        "n": 804,
+        "mae": 36.31902985074626,
+        "rmse": 39.46358908138082,
+        "bias": -36.24664179104477,
+        "pred_mean": 21.199999999999996,
+        "pred_std": 3.552713678800501e-15,
+        "gold_mean": 57.446641791044776,
+        "gold_std": 15.606275085867413,
+        "within_5pct": 0.008706467661691543,
+        "within_10pct": 0.0236318407960199,
+        "exact": 0.0,
+        "pearson_r": null,
+        "generated": 936,
+        "parsed": 936,
+        "prediction_parsed_rate": 1.0,
+        "gold_missing": 132,
+        "scored": 804,
+        "extraction_rate": 0.8589743589743589,
+        "constant_mae": 15.713303289053872,
+        "constant_rmse": 18.286990414108164,
+        "mae_vs_constant": 2.3113554917537074
+      },
+      "POLLUTANT:CO": {
+        "n": 827,
+        "mae": 1.2180169286577993,
+        "rmse": 1.655064412764359,
+        "bias": -0.4584038694074969,
+        "pred_mean": 2.1999999999999997,
+        "pred_std": 4.440892098500626e-16,
+        "gold_mean": 2.658403869407497,
+        "gold_std": 1.590315724285988,
+        "within_5pct": 0.08343409915356712,
+        "within_10pct": 0.11366384522370013,
+        "exact": 0.02418379685610641,
+        "pearson_r": null,
+        "generated": 936,
+        "parsed": 936,
+        "prediction_parsed_rate": 1.0,
+        "gold_missing": 109,
+        "scored": 827,
+        "extraction_rate": 0.8835470085470085,
+        "constant_mae": 1.2244693862060703,
+        "constant_rmse": 1.6740114693799206,
+        "mae_vs_constant": 0.9947304051689986
+      },
+      "POLLUTANT:NOx": {
+        "n": 805,
+        "mae": 300.8434782608696,
+        "rmse": 382.90448511410375,
+        "bias": -296.02360248447206,
+        "pred_mean": 111.0,
+        "pred_std": 0.0,
+        "gold_mean": 407.02360248447206,
+        "gold_std": 242.87007121630316,
+        "within_5pct": 0.009937888198757764,
+        "within_10pct": 0.02857142857142857,
+        "exact": 0.0012422360248447205,
+        "pearson_r": null,
+        "generated": 936,
+        "parsed": 936,
+        "prediction_parsed_rate": 1.0,
+        "gold_missing": 131,
+        "scored": 805,
+        "extraction_rate": 0.8600427350427351,
+        "constant_mae": 233.88798120201378,
+        "constant_rmse": 318.44420331078885,
+        "mae_vs_constant": 1.286271644719636
+      },
+      "POLLUTANT:NO2": {
+        "n": 805,
+        "mae": 35.924223602484474,
+        "rmse": 45.430651540329926,
+        "bias": -21.464596273291924,
+        "pred_mean": 111.0,
+        "pred_std": 0.0,
+        "gold_mean": 132.46459627329193,
+        "gold_std": 40.04016990727518,
+        "within_5pct": 0.11428571428571428,
+        "within_10pct": 0.22111801242236026,
+        "exact": 0.013664596273291925,
+        "pearson_r": null,
+        "generated": 936,
+        "parsed": 936,
+        "prediction_parsed_rate": 1.0,
+        "gold_missing": 131,
+        "scored": 805,
+        "extraction_rate": 0.8600427350427351,
+        "constant_mae": 42.187675634037646,
+        "constant_rmse": 52.12618976850888,
+        "mae_vs_constant": 0.8515336069736034
+      },
+      "POLLUTANT:C6H6": {
+        "n": 804,
+        "mae": 5.810572139303482,
+        "rmse": 6.973707729930153,
+        "bias": 1.7018656716417904,
+        "pred_mean": 11.2,
+        "pred_std": 0.0,
+        "gold_mean": 9.498134328358208,
+        "gold_std": 6.762858326046376,
+        "within_5pct": 0.04975124378109453,
+        "within_10pct": 0.0845771144278607,
+        "exact": 0.0037313432835820895,
+        "pearson_r": null,
+        "generated": 936,
+        "parsed": 936,
+        "prediction_parsed_rate": 1.0,
+        "gold_missing": 132,
+        "scored": 804,
+        "extraction_rate": 0.8589743589743589,
+        "constant_mae": 5.677826206415198,
+        "constant_rmse": 6.881426172545205,
+        "mae_vs_constant": 1.0233797104846742
+      }
+    },
+    "diversity": {
+      "AH": {
+        "generated": 936,
+        "distinct": 3,
+        "modal_share": 0.842948717948718,
+        "modal_output": "The absolute humidity is 1.15 g/m3.\n<|endoftext|>"
+      },
+      "TEMP_RH": {
+        "generated": 936,
+        "distinct": 5,
+        "modal_share": 0.8354700854700855,
+        "modal_output": "On 04/04/2004 at 04.00.00, the ambient temperature was 21.2 degrees Celsius and the relative humidity was 21.2%.\n<|endof"
+      },
+      "POLLUTANT": {
+        "generated": 936,
+        "distinct": 1,
+        "modal_share": 1.0,
+        "modal_output": "Recorded CO is 2.2 mg/m3, NOx is 111 ppb, and NO2 is 111 ug/m3 with benzene level at 11.2 ug/m3.\n<|endoftext|>"
+      }
+    },
+    "structure_by_kind": {
+      "AH": {
+        "generated": 936,
+        "eos_rate": 1.0,
+        "repetitive_rate": 0.0,
+        "unit_ok_rate": 1.0,
+        "wrong_unit_rate": 0.0,
+        "date_in_output_rate": 0.0,
+        "date_matches_query_rate": 0.0,
+        "date_hallucinated_rate": 0.0
+      },
+      "TEMP_RH": {
+        "generated": 936,
+        "eos_rate": 1.0,
+        "repetitive_rate": 0.0,
+        "unit_ok_rate": 1.0,
+        "wrong_unit_rate": 0.0,
+        "date_in_output_rate": 1.0,
+        "date_matches_query_rate": 0.0,
+        "date_hallucinated_rate": 1.0
+      },
+      "POLLUTANT": {
+        "generated": 936,
+        "eos_rate": 1.0,
+        "repetitive_rate": 0.0,
+        "unit_ok_rate": 1.0,
+        "wrong_unit_rate": 0.0,
+        "date_in_output_rate": 0.0,
+        "date_matches_query_rate": 0.0,
+        "date_hallucinated_rate": 0.0
+      }
+    },
+    "structure": {
+      "generated": 2808,
+      "eos_rate": 1.0,
+      "ran_to_cap_rate": 0.0,
+      "repetitive_rate": 0.0,
+      "no_digits_rate": 0.0,
+      "unit_ok_rate": 1.0,
+      "wrong_unit_rate": 0.0,
+      "replacement_char_rate": 0.0,
+      "empty_rate": 0.0,
+      "extra_text_rate": 0.0,
+      "gold_prefix_rate": 0.6666666666666666,
+      "date_in_output_rate": 0.3333333333333333,
+      "date_matches_query_rate": 0.0,
+      "date_hallucinated_rate": 0.3333333333333333,
+      "dates_seen_in_train": 936,
+      "dates_not_in_any_split": 0,
+      "outputs_matching_a_train_row_key": 936,
+      "malformed_rate": 0.0
+    },
+    "memorisation": {
+      "verbatim_training_answer_rate": 0.3333333333333333,
+      "verbatim_count": 936,
+      "outputs_with_train_row_key": 936,
+      "mean_abs_err_vs_that_train_row": 23.88060897435897
+    }
+  },
+  "v1_loss": {
+    "val": {
+      "tokens_scored": 431488,
+      "windows": 3371,
+      "loss": 1.4251928670015224,
+      "ppl": 4.158659833667201
+    },
+    "test": {
+      "tokens_scored": 870784,
+      "windows": 6803,
+      "loss": 1.447430678996622,
+      "ppl": 4.252175264745998
+    }
+  },
+  "v2_loss": {
+    "val": {
+      "tokens_scored": 431488,
+      "windows": 3371,
+      "loss": 0.48768620475468033,
+      "ppl": 1.6285437405023426
+    },
+    "test": {
+      "tokens_scored": 870784,
+      "windows": 6803,
+      "loss": 0.5554709304006384,
+      "ppl": 1.7427615109301149
+    }
+  },
+  "v1_test": {
+    "model": "v1",
+    "split": "test",
+    "n_records": 7488,
+    "teacher_forced": {
+      "REPORT": {
+        "n": 0,
+        "answer_loss": null,
+        "answer_ppl": null,
+        "top1_token_acc": null
+      },
+      "AH": {
+        "n": 1872,
+        "answer_loss": 1.4631538483449535,
+        "answer_ppl": 4.3195613093799485,
+        "top1_token_acc": 0.6612351323889787
+      },
+      "TEMP_RH": {
+        "n": 1872,
+        "answer_loss": 1.5762079746549964,
+        "answer_ppl": 4.836580557485164,
+        "top1_token_acc": 0.6345129801955651
+      },
+      "POLLUTANT": {
+        "n": 1872,
+        "answer_loss": 1.345273580051895,
+        "answer_ppl": 3.8392367355225447,
+        "top1_token_acc": 0.7262779663042301
+      },
+      "ALL": {
+        "n": 5616,
+        "answer_loss": 1.461545134350615,
+        "answer_ppl": 4.312617957083575
+      }
+    },
+    "numeric": {
+      "AH:AH": {
+        "n": 1667,
+        "mae": 9.099192501499699,
+        "rmse": 9.718616454450514,
+        "bias": 9.094828974205159,
+        "pred_mean": 9.723095380923814,
+        "pred_std": 3.4155437793767027,
+        "gold_mean": 0.6282664067186562,
+        "gold_std": 0.2581890392934284,
+        "within_5pct": 0.007198560287942412,
+        "within_10pct": 0.014397120575884824,
+        "exact": 0.0,
+        "pearson_r": -0.001695758681772927,
+        "generated": 1872,
+        "parsed": 1753,
+        "prediction_parsed_rate": 0.9364316239316239,
+        "gold_missing": 86,
+        "scored": 1667,
+        "extraction_rate": 0.8904914529914529,
+        "constant_mae": 0.5575605308468563,
+        "constant_rmse": 0.6080075110492271,
+        "mae_vs_constant": 16.319649613073043
+      },
+      "TEMP_RH:T": {
+        "n": 0,
+        "generated": 1872,
+        "parsed": 0,
+        "prediction_parsed_rate": 0.0,
+        "gold_missing": 86,
+        "scored": 0,
+        "extraction_rate": 0.0,
+        "constant_mae": 11.951308909774557,
+        "constant_rmse": 13.136330298484856,
+        "mae_vs_constant": 0.0
+      },
+      "TEMP_RH:RH": {
+        "n": 0,
+        "generated": 1872,
+        "parsed": 0,
+        "prediction_parsed_rate": 0.0,
+        "gold_missing": 86,
+        "scored": 0,
+        "extraction_rate": 0.0,
+        "constant_mae": 13.608489111356304,
+        "constant_rmse": 16.68380012006098,
+        "mae_vs_constant": 0.0
+      },
+      "POLLUTANT:CO": {
+        "n": 0,
+        "generated": 1872,
+        "parsed": 0,
+        "prediction_parsed_rate": 0.0,
+        "gold_missing": 91,
+        "scored": 0,
+        "extraction_rate": 0.0,
+        "constant_mae": 1.0998899756232887,
+        "constant_rmse": 1.3840048691402922,
+        "mae_vs_constant": 0.0
+      },
+      "POLLUTANT:NOx": {
+        "n": 0,
+        "generated": 1872,
+        "parsed": 0,
+        "prediction_parsed_rate": 0.0,
+        "gold_missing": 58,
+        "scored": 0,
+        "extraction_rate": 0.0,
+        "constant_mae": 157.68916597996926,
+        "constant_rmse": 233.68317135069938,
+        "mae_vs_constant": 0.0
+      },
+      "POLLUTANT:NO2": {
+        "n": 0,
+        "generated": 1872,
+        "parsed": 0,
+        "prediction_parsed_rate": 0.0,
+        "gold_missing": 58,
+        "scored": 0,
+        "extraction_rate": 0.0,
+        "constant_mae": 55.509071689060654,
+        "constant_rmse": 69.88671612296115,
+        "mae_vs_constant": 0.0
+      },
+      "POLLUTANT:C6H6": {
+        "n": 0,
+        "generated": 1872,
+        "parsed": 0,
+        "prediction_parsed_rate": 0.0,
+        "gold_missing": 86,
+        "scored": 0,
+        "extraction_rate": 0.0,
+        "constant_mae": 6.128345497527768,
+        "constant_rmse": 7.139189934190751,
+        "mae_vs_constant": 0.0
+      }
+    },
+    "diversity": {
+      "AH": {
+        "generated": 1872,
+        "distinct": 60,
+        "modal_share": 0.2094017094017094,
+        "modal_output": "11.1.0.0.0.0.0.0.0.0.0.0.0.08.04, NOx(GT)=111"
+      },
+      "TEMP_RH": {
+        "generated": 1872,
+        "distinct": 2,
+        "modal_share": 0.6292735042735043,
+        "modal_output": "1.0.0.00, the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature an"
+      },
+      "POLLUTANT": {
+        "generated": 1872,
+        "distinct": 3,
+        "modal_share": 0.905982905982906,
+        "modal_output": "1.00.0.0, NOx(GT)=112 ug/m3 (sensor PT08.S3=1111), Non-Methane Hydrocarbons NMHC(GT)=11 ug/m"
+      }
+    },
+    "structure_by_kind": {
+      "AH": {
+        "generated": 1872,
+        "eos_rate": 0.0,
+        "repetitive_rate": 0.06356837606837606,
+        "unit_ok_rate": 0.15918803418803418,
+        "wrong_unit_rate": 0.0,
+        "date_in_output_rate": 0.0,
+        "date_matches_query_rate": 0.0,
+        "date_hallucinated_rate": 0.0
+      },
+      "TEMP_RH": {
+        "generated": 1872,
+        "eos_rate": 0.0,
+        "repetitive_rate": 1.0,
+        "unit_ok_rate": 0.0,
+        "wrong_unit_rate": 0.0,
+        "date_in_output_rate": 0.0,
+        "date_matches_query_rate": 0.0,
+        "date_hallucinated_rate": 0.0
+      },
+      "POLLUTANT": {
+        "generated": 1872,
+        "eos_rate": 0.0,
+        "repetitive_rate": 0.0,
+        "unit_ok_rate": 0.0,
+        "wrong_unit_rate": 1.0,
+        "date_in_output_rate": 0.0,
+        "date_matches_query_rate": 0.0,
+        "date_hallucinated_rate": 0.0
+      }
+    },
+    "structure": {
+      "generated": 5616,
+      "eos_rate": 0.0,
+      "ran_to_cap_rate": 1.0,
+      "repetitive_rate": 0.354522792022792,
+      "no_digits_rate": 0.02118945868945869,
+      "unit_ok_rate": 0.053062678062678066,
+      "wrong_unit_rate": 0.3333333333333333,
+      "replacement_char_rate": 0.0,
+      "empty_rate": 0.0,
+      "extra_text_rate": 0.0,
+      "gold_prefix_rate": 0.0,
+      "date_in_output_rate": 0.0,
+      "date_matches_query_rate": 0.0,
+      "date_hallucinated_rate": 0.0,
+      "dates_seen_in_train": 0,
+      "dates_not_in_any_split": 0,
+      "outputs_matching_a_train_row_key": 0,
+      "malformed_rate": 1.0
+    },
+    "memorisation": {
+      "verbatim_training_answer_rate": 0.0,
+      "verbatim_count": 0,
+      "outputs_with_train_row_key": 0,
+      "mean_abs_err_vs_that_train_row": null
+    }
+  },
+  "v2_test": {
+    "model": "v2",
+    "split": "test",
+    "n_records": 7488,
+    "teacher_forced": {
+      "REPORT": {
+        "n": 0,
+        "answer_loss": null,
+        "answer_ppl": null,
+        "top1_token_acc": null
+      },
+      "AH": {
+        "n": 1872,
+        "answer_loss": 0.4086096375806528,
+        "answer_ppl": 1.5047242180373783,
+        "top1_token_acc": 0.8137065925527465
+      },
+      "TEMP_RH": {
+        "n": 1872,
+        "answer_loss": 0.7085809636001403,
+        "answer_ppl": 2.0311069979331986,
+        "top1_token_acc": 0.7854895037970605
+      },
+      "POLLUTANT": {
+        "n": 1872,
+        "answer_loss": 0.49343856926370633,
+        "answer_ppl": 1.637938713464734,
+        "top1_token_acc": 0.8252910855194828
+      },
+      "ALL": {
+        "n": 5616,
+        "answer_loss": 0.5368763901481665,
+        "answer_ppl": 1.7106550890214223
+      }
+    },
+    "numeric": {
+      "AH:AH": {
+        "n": 1786,
+        "mae": 0.5344797872340424,
+        "rmse": 0.5849252411482708,
+        "bias": 0.5253432810750279,
+        "pred_mean": 1.1504815229563272,
+        "pred_std": 0.003065712766889601,
+        "gold_mean": 0.6251382418812991,
+        "gold_std": 0.25749279907964817,
+        "within_5pct": 0.0341545352743561,
+        "within_10pct": 0.07446808510638298,
+        "exact": 0.0,
+        "pearson_r": 0.10132101684428338,
+        "generated": 1872,
+        "parsed": 1872,
+        "prediction_parsed_rate": 1.0,
+        "gold_missing": 86,
+        "scored": 1786,
+        "extraction_rate": 0.9540598290598291,
+        "constant_mae": 0.5575605308468563,
+        "constant_rmse": 0.6080075110492271,
+        "mae_vs_constant": 0.9586040576119019
+      },
+      "TEMP_RH:T": {
+        "n": 1786,
+        "mae": 11.535610302351623,
+        "rmse": 12.72485641901937,
+        "bias": 11.211870100783875,
+        "pred_mean": 21.2,
+        "pred_std": 0.0,
+        "gold_mean": 9.988129899216126,
+        "gold_std": 6.01796807301327,
+        "within_5pct": 0.030795072788353865,
+        "within_10pct": 0.060470324748040316,
+        "exact": 0.0011198208286674132,
+        "pearson_r": null,
+        "generated": 1872,
+        "parsed": 1872,
+        "prediction_parsed_rate": 1.0,
+        "gold_missing": 86,
+        "scored": 1786,
+        "extraction_rate": 0.9540598290598291,
+        "constant_mae": 11.951308909774557,
+        "constant_rmse": 13.136330298484856,
+        "mae_vs_constant": 0.9652173154788971
+      },
+      "TEMP_RH:RH": {
+        "n": 1786,
+        "mae": 29.31730123180291,
+        "rmse": 33.43159476536277,
+        "bias": -29.066349384098544,
+        "pred_mean": 21.2,
+        "pred_std": 0.0,
+        "gold_mean": 50.26634938409854,
+        "gold_std": 16.517229248180378,
+        "within_5pct": 0.013997760358342666,
+        "within_10pct": 0.027435610302351622,
+        "exact": 0.0,
+        "pearson_r": null,
+        "generated": 1872,
+        "parsed": 1872,
+        "prediction_parsed_rate": 1.0,
+        "gold_missing": 86,
+        "scored": 1786,
+        "extraction_rate": 0.9540598290598291,
+        "constant_mae": 13.608489111356304,
+        "constant_rmse": 16.68380012006098,
+        "mae_vs_constant": 2.1543391769581226
+      },
+      "POLLUTANT:CO": {
+        "n": 1781,
+        "mae": 1.1197080291970802,
+        "rmse": 1.3933305483066356,
+        "bias": 0.2335766423357666,
+        "pred_mean": 2.1999999999999993,
+        "pred_std": 8.881784197001252e-16,
+        "gold_mean": 1.9664233576642334,
+        "gold_std": 1.3736127434614238,
+        "within_5pct": 0.08141493542953397,
+        "within_10pct": 0.10162829870859068,
+        "exact": 0.027512633352049412,
+        "pearson_r": null,
+        "generated": 1872,
+        "parsed": 1872,
+        "prediction_parsed_rate": 1.0,
+        "gold_missing": 91,
+        "scored": 1781,
+        "extraction_rate": 0.9513888888888888,
+        "constant_mae": 1.0998899756232887,
+        "constant_rmse": 1.3840048691402922,
+        "mae_vs_constant": 1.0180182145605619
+      },
+      "POLLUTANT:NOx": {
+        "n": 1814,
+        "mae": 202.54024255788312,
+        "rmse": 285.2763491237041,
+        "bias": -193.67916207276735,
+        "pred_mean": 111.0,
+        "pred_std": 0.0,
+        "gold_mean": 304.6791620727674,
+        "gold_std": 209.4539986444284,
+        "within_5pct": 0.025358324145534728,
+        "within_10pct": 0.05898566703417861,
+        "exact": 0.0016538037486218302,
+        "pearson_r": null,
+        "generated": 1872,
+        "parsed": 1872,
+        "prediction_parsed_rate": 1.0,
+        "gold_missing": 58,
+        "scored": 1814,
+        "extraction_rate": 0.969017094017094,
+        "constant_mae": 157.68916597996926,
+        "constant_rmse": 233.68317135069938,
+        "mae_vs_constant": 1.2844271278827815
+      },
+      "POLLUTANT:NO2": {
+        "n": 1814,
+        "mae": 49.41289966923925,
+        "rmse": 62.93028729025794,
+        "bias": -32.82965821389195,
+        "pred_mean": 111.0,
+        "pred_std": 0.0,
+        "gold_mean": 143.82965821389195,
+        "gold_std": 53.68830971443817,
+        "within_5pct": 0.07386990077177508,
+        "within_10pct": 0.15931642778390298,
+        "exact": 0.008269018743109152,
+        "pearson_r": null,
+        "generated": 1872,
+        "parsed": 1872,
+        "prediction_parsed_rate": 1.0,
+        "gold_missing": 58,
+        "scored": 1814,
+        "extraction_rate": 0.969017094017094,
+        "constant_mae": 55.509071689060654,
+        "constant_rmse": 69.88671612296115,
+        "mae_vs_constant": 0.8901770136966136
+      },
+      "POLLUTANT:C6H6": {
+        "n": 1786,
+        "mae": 6.346920492721165,
+        "rmse": 7.323538879839724,
+        "bias": 3.3155655095184766,
+        "pred_mean": 11.199999999999998,
+        "pred_std": 1.7763568394002505e-15,
+        "gold_mean": 7.884434490481522,
+        "gold_std": 6.530026575490758,
+        "within_5pct": 0.0341545352743561,
+        "within_10pct": 0.07782754759238522,
+        "exact": 0.0016797312430011197,
+        "pearson_r": null,
+        "generated": 1872,
+        "parsed": 1872,
+        "prediction_parsed_rate": 1.0,
+        "gold_missing": 86,
+        "scored": 1786,
+        "extraction_rate": 0.9540598290598291,
+        "constant_mae": 6.128345497527768,
+        "constant_rmse": 7.139189934190751,
+        "mae_vs_constant": 1.0356662324736052
+      }
+    },
+    "diversity": {
+      "AH": {
+        "generated": 1872,
+        "distinct": 3,
+        "modal_share": 0.9310897435897436,
+        "modal_output": "The absolute humidity is 1.15 g/m3.\n<|endoftext|>"
+      },
+      "TEMP_RH": {
+        "generated": 1872,
+        "distinct": 5,
+        "modal_share": 0.8915598290598291,
+        "modal_output": "On 04/04/2004 at 04.00.00, the ambient temperature was 21.2 degrees Celsius and the relative humidity was 21.2%.\n<|endof"
+      },
+      "POLLUTANT": {
+        "generated": 1872,
+        "distinct": 1,
+        "modal_share": 1.0,
+        "modal_output": "Recorded CO is 2.2 mg/m3, NOx is 111 ppb, and NO2 is 111 ug/m3 with benzene level at 11.2 ug/m3.\n<|endoftext|>"
+      }
+    },
+    "structure_by_kind": {
+      "AH": {
+        "generated": 1872,
+        "eos_rate": 1.0,
+        "repetitive_rate": 0.0,
+        "unit_ok_rate": 1.0,
+        "wrong_unit_rate": 0.0,
+        "date_in_output_rate": 0.0,
+        "date_matches_query_rate": 0.0,
+        "date_hallucinated_rate": 0.0
+      },
+      "TEMP_RH": {
+        "generated": 1872,
+        "eos_rate": 1.0,
+        "repetitive_rate": 0.0,
+        "unit_ok_rate": 1.0,
+        "wrong_unit_rate": 0.0,
+        "date_in_output_rate": 1.0,
+        "date_matches_query_rate": 0.0,
+        "date_hallucinated_rate": 1.0
+      },
+      "POLLUTANT": {
+        "generated": 1872,
+        "eos_rate": 1.0,
+        "repetitive_rate": 0.0,
+        "unit_ok_rate": 1.0,
+        "wrong_unit_rate": 0.0,
+        "date_in_output_rate": 0.0,
+        "date_matches_query_rate": 0.0,
+        "date_hallucinated_rate": 0.0
+      }
+    },
+    "structure": {
+      "generated": 5616,
+      "eos_rate": 1.0,
+      "ran_to_cap_rate": 0.0,
+      "repetitive_rate": 0.0,
+      "no_digits_rate": 0.0,
+      "unit_ok_rate": 1.0,
+      "wrong_unit_rate": 0.0,
+      "replacement_char_rate": 0.0,
+      "empty_rate": 0.0,
+      "extra_text_rate": 0.0,
+      "gold_prefix_rate": 0.6691595441595442,
+      "date_in_output_rate": 0.3333333333333333,
+      "date_matches_query_rate": 0.0,
+      "date_hallucinated_rate": 0.3333333333333333,
+      "dates_seen_in_train": 1872,
+      "dates_not_in_any_split": 0,
+      "outputs_matching_a_train_row_key": 1872,
+      "malformed_rate": 0.0
+    },
+    "memorisation": {
+      "verbatim_training_answer_rate": 0.3333333333333333,
+      "verbatim_count": 1872,
+      "outputs_with_train_row_key": 1872,
+      "mean_abs_err_vs_that_train_row": 24.93966346153846
+    }
+  },
+  "v1_loss64": {
+    "model": "v1",
+    "block": 64,
+    "val": {
+      "tokens_scored": 25600,
+      "windows": 400,
+      "loss": 1.358291473388672,
+      "ppl": 3.889542235236231
+    },
+    "test": {
+      "tokens_scored": 25600,
+      "windows": 400,
+      "loss": 1.4129526448249816,
+      "ppl": 4.1080671776818845
+    }
+  },
+  "paired": {
+    "val": {
+      "AH": {
+        "better": 679,
+        "worse": 73,
+        "tie": 0,
+        "n": 752
+      }
+    },
+    "test": {
+      "AH": {
+        "better": 1458,
+        "worse": 209,
+        "tie": 0,
+        "n": 1667
+      }
+    }
+  },
+  "baseline": {
+    "val": {
+      "rows": 936,
+      "by_quantity": {
+        "AH": {
+          "n": 804,
+          "gold_mean": 0.7175665422885572,
+          "gold_std": 0.22346242393950677,
+          "train_mean": 1.1759291204499296,
+          "train_std": 0.35355868683906905,
+          "constant_mae": 0.4587364177588855,
+          "constant_rmse": 0.5099330426356582,
+          "min": 0.2749,
+          "max": 1.2326
+        },
+        "T": {
+          "n": 804,
+          "gold_mean": 10.17375621890547,
+          "gold_std": 3.5604125648740577,
+          "train_mean": 21.664911732541785,
+          "train_std": 7.679588603637169,
+          "constant_mae": 11.491155513636313,
+          "constant_rmse": 12.03009528934361,
+          "min": 1.2,
+          "max": 18.9
+        },
+        "RH": {
+          "n": 804,
+          "gold_mean": 57.446641791044776,
+          "gold_std": 15.606275085867413,
+          "train_mean": 47.914685205436655,
+          "train_std": 17.435273332702447,
+          "constant_mae": 15.713303289053872,
+          "constant_rmse": 18.286990414108164,
+          "min": 16.3,
+          "max": 86.6
+        },
+        "CO(GT)": {
+          "n": 827,
+          "gold_mean": 2.658403869407497,
+          "gold_std": 1.590315724285988,
+          "train_mean": 2.135708645874457,
+          "train_std": 1.4383130341471888,
+          "constant_mae": 1.2244693862060703,
+          "constant_rmse": 1.6740114693799206,
+          "min": 0.2,
+          "max": 9.9
+        },
+        "NOx(GT)": {
+          "n": 805,
+          "gold_mean": 407.02360248447206,
+          "gold_std": 242.87007121630316,
+          "train_mean": 201.06040400078447,
+          "train_std": 190.7884455422959,
+          "constant_mae": 233.88798120201378,
+          "constant_rmse": 318.44420331078885,
+          "min": 31.0,
+          "max": 1479.0
+        },
+        "NO2(GT)": {
+          "n": 805,
+          "gold_mean": 132.46459627329193,
+          "gold_std": 40.04016990727518,
+          "train_mean": 99.08908948194663,
+          "train_std": 40.87763773274404,
+          "constant_mae": 42.187675634037646,
+          "constant_rmse": 52.12618976850888,
+          "min": 27.0,
+          "max": 269.0
+        },
+        "C6H6(GT)": {
+          "n": 804,
+          "gold_mean": 9.498134328358208,
+          "gold_std": 6.762858326046376,
+          "train_mean": 10.770051554444617,
+          "train_std": 7.645306861922988,
+          "constant_mae": 5.677826206415198,
+          "constant_rmse": 6.881426172545205,
+          "min": 0.4,
+          "max": 50.8
+        }
+      },
+      "date_overlap_with_train": 1,
+      "train_date_pool": 274
+    },
+    "test": {
+      "rows": 1872,
+      "by_quantity": {
+        "AH": {
+          "n": 1786,
+          "gold_mean": 0.6251382418812991,
+          "gold_std": 0.25749279907964817,
+          "train_mean": 1.1759291204499296,
+          "train_std": 0.35355868683906905,
+          "constant_mae": 0.5575605308468563,
+          "constant_rmse": 0.6080075110492271,
+          "min": 0.1847,
+          "max": 1.393
+        },
+        "T": {
+          "n": 1786,
+          "gold_mean": 9.988129899216126,
+          "gold_std": 6.01796807301327,
+          "train_mean": 21.664911732541785,
+          "train_std": 7.679588603637169,
+          "constant_mae": 11.951308909774557,
+          "constant_rmse": 13.136330298484856,
+          "min": -1.9,
+          "max": 30.0
+        },
+        "RH": {
+          "n": 1786,
+          "gold_mean": 50.26634938409854,
+          "gold_std": 16.517229248180378,
+          "train_mean": 47.914685205436655,
+          "train_std": 17.435273332702447,
+          "constant_mae": 13.608489111356304,
+          "constant_rmse": 16.68380012006098,
+          "min": 9.9,
+          "max": 86.6
+        },
+        "CO(GT)": {
+          "n": 1781,
+          "gold_mean": 1.9664233576642334,
+          "gold_std": 1.3736127434614238,
+          "train_mean": 2.135708645874457,
+          "train_std": 1.4383130341471888,
+          "constant_mae": 1.0998899756232887,
+          "constant_rmse": 1.3840048691402922,
+          "min": 0.1,
+          "max": 8.7
+        },
+        "NOx(GT)": {
+          "n": 1814,
+          "gold_mean": 304.6791620727674,
+          "gold_std": 209.4539986444284,
+          "train_mean": 201.06040400078447,
+          "train_std": 190.7884455422959,
+          "constant_mae": 157.68916597996926,
+          "constant_rmse": 233.68317135069938,
+          "min": 17.0,
+          "max": 1230.0
+        },
+        "NO2(GT)": {
+          "n": 1814,
+          "gold_mean": 143.82965821389195,
+          "gold_std": 53.68830971443817,
+          "train_mean": 99.08908948194663,
+          "train_std": 40.87763773274404,
+          "constant_mae": 55.509071689060654,
+          "constant_rmse": 69.88671612296115,
+          "min": 17.0,
+          "max": 340.0
+        },
+        "C6H6(GT)": {
+          "n": 1786,
+          "gold_mean": 7.884434490481522,
+          "gold_std": 6.530026575490758,
+          "train_mean": 10.770051554444617,
+          "train_std": 7.645306861922988,
+          "constant_mae": 6.128345497527768,
+          "constant_rmse": 7.139189934190751,
+          "min": 0.1,
+          "max": 43.0
+        }
+      },
+      "date_overlap_with_train": 0,
+      "train_date_pool": 274
+    }
+  }
+}

@@ -2,3 +2,30 @@
 training/data_bin/
 *.pt
 *.bin
+
+# Python environment and cache
+venv/
+.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Logs
+*.log
+*.log.*
+*.err.log
+
+# Local inference binaries and model checkpoints
+.llama_cpp/
+*.gguf
+*.safetensors
+*.pt
+*.bin
+
+# Backups and Hugging Face release bundles
+backup_pre_conversion/
+huggingface_v3_release/
+Air_Quality_SLM_v3_HuggingFace.zip
+
+# Dataset and training archives
+*.zip

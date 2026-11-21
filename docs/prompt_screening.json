@@ -1,0 +1,72 @@
+[
+  {
+    "prompt": "Task: Predict the absolute humidity given the following parameters: Date: 11/03/2004, Time: 02.00.00, CO(GT): 0.9, NOx(GT): 45.0, NO2(GT): 60.0. Response:",
+    "tokens": 70,
+    "fits": false,
+    "output": " 1.1.1.0.1.1.0.0.0.0.0.0.0.0.00.00.00.00.00.00.00.00.00.00.00000",
+    "eval_count": 64
+  },
+  {
+    "prompt": "Task: Predict the absolute humidity given the following parameters: Temperature: 13.6 C, Relative Humidity: 48.9 %. Response:",
+    "tokens": 32,
+    "fits": true,
+    "output": " 1.1.0.00, Relative Humidity: 1.1.0.0.0.1.0.0.0.00.0.0.00.000.00.00.00.00.00000",
+    "eval_count": 64
+  },
+  {
+    "prompt": "Task: Predict the absolute humidity: Date: 11/03/2004, Time: 02.00.00, CO(GT): 0.9, NOx(GT): 45.0, NO2(GT): 60.0. Response:",
+    "tokens": 66,
+    "fits": false,
+    "output": " 1.1.1.0.1.1.0.0.0.0.0.0.0.0.00.00.00.00.00.00.00.00.00.00.00000",
+    "eval_count": 64
+  },
+  {
+    "prompt": "Question: What is the absolute humidity? Answer:",
+    "tokens": 10,
+    "fits": true,
+    "output": " 1.1 ug/m3.\n",
+    "eval_count": 9
+  },
+  {
+    "prompt": "Absolute Humidity= ? given Temperature=13.6 C, Relative Humidity=48.9 %.",
+    "tokens": 23,
+    "fits": true,
+    "output": " Response: 11.3.\n",
+    "eval_count": 9
+  },
+  {
+    "prompt": "Air quality measurement report for 10/03/2004 at 18.00.00: Carbon Monoxide CO(GT)=",
+    "tokens": 34,
+    "fits": true,
+    "output": "1.8 ug/m3 (sensor PT08.S3=1111), Non-Methane Hydrocarbons NMHC(GT)=1.8 ug/m3 (sensor PT08.S2=1111), Benzene C66(GT)=1.8 ug/m3",
+    "eval_count": 64
+  },
+  {
+    "prompt": "Air quality measurement report for 10/03/2004 at 18.00.00: Temperature=",
+    "tokens": 29,
+    "fits": true,
+    "output": "1.0.0.00, Relative Humidity=1.0.8.8.0.0.0.0.0.0.0.0.0.00.00.00.0.0.00.00.00.0.0",
+    "eval_count": 64
+  },
+  {
+    "prompt": "Question: What were the ambient temperature and relative humidity recorded on 10/03/2004 at 18.00.00? Answer:",
+    "tokens": 36,
+    "fits": true,
+    "output": " 1.0.0.00, the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient temperature and the ambient",
+    "eval_count": 64
+  },
+  {
+    "prompt": "What were the temperature and relative humidity recorded on 10/03/2004 at 18.00.00?",
+    "tokens": 31,
+    "fits": true,
+    "output": " Result: 11.1 ug/m3.\n",
+    "eval_count": 12
+  },
+  {
+    "prompt": "Query: What are the primary pollutant concentrations (CO, NOx, NO2) on 10/03/2004 at 18.00.00? Result:",
+    "tokens": 43,
+    "fits": true,
+    "output": " 1.00.0.0, NOx(GT)=112 ug/m3 (sensor PT08.S3=1111), Non-Methane Hydrocarbons NMHC(GT)=1.8 ug/m3 (sensor PT08.S2=1111",
+    "eval_count": 64
+  }
+]

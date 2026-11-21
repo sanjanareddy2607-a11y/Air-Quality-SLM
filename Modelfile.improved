@@ -1,0 +1,28 @@
+# Modelfile for the CONTINUED-TRAINING Air Quality SLM
+# Registered separately as: air-quality-slm-improved
+# The original air-quality-slm:latest is left untouched.
+
+FROM ./models/air_quality_slm_finetuned/air_quality_slm_finetuned.gguf
+
+# The continued model was trained with a 128-token window (the original used 64).
+# This is the important change: the absolute-humidity template is 86 tokens, so it now
+# fits inside the context instead of being silently truncated to its last 34 tokens.
+PARAMETER num_ctx 128
+
+# Deterministic decoding, as validated for the original model.
+PARAMETER temperature 0
+PARAMETER top_k 1
+PARAMETER top_p 1.0
+PARAMETER min_p 0.0
+PARAMETER repeat_penalty 1.0
+PARAMETER repeat_last_n 64
+
+# Bounded so prompt + response stay inside the 128 trained positions.
+# 48 (not 40): the temperature/RH answer needs ~19 tokens, and 40 tokens cut it off
+# before the RH value was emitted (see docs/EVALUATION_V2_REPORT.md).
+PARAMETER num_predict 48
+
+PARAMETER stop "<|endoftext|>"
+
+# Raw prompt template: the model is trained on raw instruction text, not ChatML.
+TEMPLATE """{{ .Prompt }}"""
